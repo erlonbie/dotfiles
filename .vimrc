@@ -71,6 +71,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'unblevable/quick-scope'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'zivyangll/git-blame.vim'
 
 call vundle#end()
 
@@ -444,3 +445,16 @@ let g:gitgutter_sign_modified = '✹'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
+
+"Gblame 
+nnoremap <Leader>ss :<C-u>call gitblame#echo()<CR>
+
+function! s:ToggleBlame()
+    if &l:filetype ==# 'fugitiveblame'
+        close
+    else
+        Gblame
+    endif
+endfunction
+
+nnoremap <leader>b :call <SID>ToggleBlame()<CR>
