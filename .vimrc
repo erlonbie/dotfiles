@@ -72,6 +72,8 @@ Plugin 'unblevable/quick-scope'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'zivyangll/git-blame.vim'
+Plugin 'voldikss/vim-floaterm'
+Plugin 'liuchengxu/vim-which-key'
 
 call vundle#end()
 
@@ -458,3 +460,18 @@ function! s:ToggleBlame()
 endfunction
 
 nnoremap <leader>b :call <SID>ToggleBlame()<CR>
+
+"Float term 
+
+let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_next   = '<F2>'
+let g:floaterm_keymap_prev   = '<F3>'
+let g:floaterm_keymap_new    = '<F4>'
+
+" Floaterm
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.8
+let g:floaterm_height=0.5
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
