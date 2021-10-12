@@ -8,6 +8,8 @@ set smartindent
 set nu
 set hidden
 set scrolloff=10
+set sidescrolloff=5
+set sidescroll=1
 set nohlsearch 
 set nowrap
 set smartcase
@@ -75,6 +77,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'liuchengxu/vim-which-key'
+"Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+Plugin 'uiiaoo/java-syntax.vim'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 
@@ -433,6 +439,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'v': '~/.vimrc' },
             \ { 'b': '~/.bashrc' },
+            \ { 't': '~/.tmux.conf' },
             \ ]
 
 let g:startify_custom_header = [
@@ -496,3 +503,16 @@ let g:floaterm_width=0.8
 let g:floaterm_height=0.5
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
+
+highlight link javaIdentifier NONE
+highlight link javaDelimiter NONE
+
+vnoremap > >gv
+vnoremap < <gv
+
+map <C-k> <plug>Commentary
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+let NERDTreeShowHidden=0
