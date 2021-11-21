@@ -21,7 +21,9 @@
     "yaml",
     "json",
     "python",
-    "java"
+    "java",
+    "typescript",
+    "prisma"
   ],
   //"snippets.ultisnips.enable": false,
 

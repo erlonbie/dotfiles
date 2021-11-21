@@ -46,7 +46,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-utils/vim-man'
 Plugin 'lyuts/vim-rtags'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -81,10 +81,19 @@ Plugin 'liuchengxu/vim-which-key'
 Plugin 'tpope/vim-surround'
 Plugin 'uiiaoo/java-syntax.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'mlaursen/vim-react-snippets'
+Plugin 'mileszs/ack.vim'
+" or Plug 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'pantharshit00/vim-prisma'
+Plugin 'dkarter/bullets.vim'
+
 
 call vundle#end()
 
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid {}'"
+" let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
 let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -113,14 +122,27 @@ map <C-Right> :bn<CR>
 map <C-Left> :bp<CR>  
 "nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeIgnore = ['^node_modules$']
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+
+
+map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
+
+
+
 map <C-\> :vsplit<CR>
 au BufReadPost *.handlebars set filetype=html syntax=handlebars
 :command Q q
 :command W w
 :command Wq wq
 
-set runtimepath-=~/.vim/bundle/YouCompleteMe
+" set runtimepath-=~/.vim/bundle/YouCompleteMe
 
 autocmd BufWritePre *.js Neoformat
 
@@ -371,7 +393,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
@@ -516,3 +538,44 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 let NERDTreeShowHidden=0
+
+noremap x "_x
+noremap X "_x
+
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](doc|tmp|node_modules)',
+  \ }
+
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
+" Move current tab into the specified direction.
+"
+" @param direction -1 for left, 1 for right.
+function! TabMove(direction)
+    " get number of tab pages.
+    let ntp=tabpagenr("$")
+    " move tab, if necessary.
+    if ntp > 1
+        " get number of current tab page.
+        let ctpn=tabpagenr()
+        " move left.
+        if a:direction < 0
+            let index=((ctpn-1+ntp-1)%ntp)
+        else
+            let index=(ctpn%ntp)
+        endif
+
+        " move tab page.
+        execute "tabmove ".index
+    endif
+endfunction
+
+map <C-h> :call TabMove(-1)<CR>
+map <C-l> :call TabMove(1)<CR>
