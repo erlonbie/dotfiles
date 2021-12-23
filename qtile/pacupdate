@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# depends on the pacman-contrib
+
+cupd=$(checkupdates | wc -l)
+echo "$cupd available "
