@@ -1,4 +1,6 @@
+filetype plugin on
 syntax on
+filetype on
 
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -35,7 +37,6 @@ let g:palenight_color_overrides = {
 \    'black': { 'gui': '#000000', "cterm": "0", "cterm16": "0" },
 \}
 set nocompatible
-filetype on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -87,10 +88,15 @@ Plugin 'mileszs/ack.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'pantharshit00/vim-prisma'
 Plugin 'dkarter/bullets.vim'
-
+Plugin 'mattn/emmet-vim'
+Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'godlygeek/tabular'
+Plugin 'chrisbra/csv.vim'
 
 call vundle#end()
 
+filetype plugin on
 " let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid {}'"
 " let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
@@ -461,7 +467,8 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'v': '~/.vimrc' },
             \ { 'b': '~/.bashrc' },
-            \ { 't': '~/.tmux.conf' },
+            \ { 't': '~/.config/qtile/config.py' },
+            \ { 'a': '~/.alacritty.yml' },
             \ ]
 
 let g:startify_custom_header = [
@@ -505,7 +512,7 @@ function! s:ToggleBlame()
     if &l:filetype ==# 'fugitiveblame'
         close
     else
-        Gblame
+        Git blame
     endif
 endfunction
 
@@ -579,3 +586,31 @@ endfunction
 
 map <C-h> :call TabMove(-1)<CR>
 map <C-l> :call TabMove(1)<CR>
+
+let g:LanguageClient_serverCommands = {
+\ 'prolog': ['swipl',
+\            '-g', 'use_module(library(lsp_server)).',
+\            '-g', 'lsp_server:main',
+\            '-t', 'halt',
+\            '--', 'stdio']
+\ }
+
+let g:indentLine_setColors = 0
+let g:indentLine_defaultGroup = 'SpecialKey'
+" Vim
+let g:indentLine_color_term = 239
+
+" GVim
+let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+" Background (Vim, GVim)
+let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_gui = '#FF5F00'
+let g:indentLine_char = '¦'
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+
