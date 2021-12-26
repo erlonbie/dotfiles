@@ -125,6 +125,10 @@ keys = [
     Key([mod], "Right", lazy.group.next_window(), desc='Use next layout on the actual group'),
     Key([mod], "Left", lazy.group.prev_window(), desc='Use next layout on the actual group'),
 
+    Key([mod], "u", lazy.layout.shuffle_down()),
+    Key([mod], "i", lazy.layout.shuffle_up()),
+    Key([mod], "y", lazy.layout.shuffle_left()),
+    Key([mod], "p", lazy.layout.shuffle_right()),
 
     # Brightness
     # Key([], 'F7', lazy.spawn('xset dpms force off')),
@@ -585,7 +589,7 @@ def init_widgets_list():
                 #        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[27],
                        foreground = colors[2],
@@ -593,7 +597,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[25],
@@ -627,7 +631,7 @@ def init_widgets_list():
                          ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[25],
                        foreground = colors[2],
@@ -635,7 +639,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[31],
@@ -661,7 +665,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[31],
                        foreground = colors[2],
@@ -669,7 +673,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[30],
@@ -701,7 +705,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[30],
                        foreground = colors[2],
@@ -709,7 +713,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[2],
@@ -720,7 +724,7 @@ def init_widgets_list():
                 ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[2],
@@ -728,7 +732,7 @@ def init_widgets_list():
                        ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
                        foreground = colors[13],
@@ -751,7 +755,7 @@ def init_widgets_list():
                 ),
                 widget.TextBox(
                        text = "",
-                       font = "Iosevka_Nerd_Font",
+                       # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[13],
                        foreground = colors[13],
@@ -1082,9 +1086,9 @@ def init_widgets_screen3():
     return widgets_screen3                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(wallpaper="/home/erlonbie/Downloads/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
-            Screen(wallpaper="/home/erlonbie/Downloads/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
-            Screen(wallpaper="/home/erlonbie/Downloads/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=20))]
+    return [Screen(wallpaper="/home/erlonbie/Pictures/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
+            Screen(wallpaper="/home/erlonbie/Pictures/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
+            Screen(wallpaper="/home/erlonbie/Pictures/gruvbox_astronaut2.png", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=20))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
@@ -1134,7 +1138,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     *layout.Floating.default_float_rules,
