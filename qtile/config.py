@@ -119,7 +119,8 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([mod], "m", lazy.layout.maximize(), desc='toggle window between minimum and maximum sizes'),
     
-    Key([mod], "Tab", lazy.screen.toggle_group(), desc='Use next layout on the actual group'),
+    Key([mod], "semicolon", lazy.spawn("pcmanfm"), desc='Use next layout on the actual group'),
+    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc='Use next layout on the actual group'),
     Key([mod], "Down", lazy.screen.next_group(), desc='Use next layout on the actual group'),
     Key([mod], "Up", lazy.screen.prev_group(), desc='Use next layout on the actual group'),
     Key([mod], "Right", lazy.group.next_window(), desc='Use next layout on the actual group'),
@@ -128,12 +129,14 @@ keys = [
     Key([mod], "u", lazy.layout.shuffle_down()),
     Key([mod], "i", lazy.layout.shuffle_up()),
     Key([mod], "y", lazy.layout.shuffle_left()),
-    Key([mod], "p", lazy.layout.shuffle_right()),
+    Key([mod], "o", lazy.layout.shuffle_right()),
 
     # Brightness
     # Key([], 'F7', lazy.spawn('xset dpms force off')),
-    Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
-    Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
+    # Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
+    # Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
+    Key([], 'XF86MonBrightnessUp',   lazy.spawn("brillo -q -A 5")),
+    Key([], 'XF86MonBrightnessDown',   lazy.spawn("brillo -q -U 5")),
     
     # Screenshots
     # Key([mod, "shift"], 'Print', lazy.function(screenshot(False, True))),
@@ -175,7 +178,8 @@ keys = [
         [mod],
         "d",
         # lazy.spawn("appmenu"),
-        lazy.spawn("dmenu_run -b -p 'Run: '"),
+        # lazy.spawn("dmenu_run -b -p 'Run: '"),
+        lazy.spawn("rofi -show combi"),
         desc="launcher-apps ",
     ),
     Key(
@@ -479,6 +483,15 @@ def open_calendar():
 def open_pacman():
     qtile.cmd_spawn("alacritty -e sudo pacman -Syu")
 
+def open_wifi_menu():
+    qtile.cmd_spawn("rofi-wifi-menu.sh")
+
+def mute_volume():
+    qtile.cmd_spawn("ponymix toggle")
+
+def pulse_mixer():
+    qtile.cmd_spawn("pulsemixer")
+
 def init_widgets_list():
     widgets_list = [
                 widget.Sep(
@@ -661,6 +674,7 @@ def init_widgets_list():
                 widget.Volume(
                        foreground = colors[2],
                        background = colors[31],
+                        mouse_callbacks = {"Button1": mute_volume, "Button2": pulse_mixer},
                        padding = 5
                        ),
                 widget.TextBox(
@@ -703,6 +717,28 @@ def init_widgets_list():
                        background = colors[30],
                        padding = 5
                        ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[30],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[29],
+                       padding = 0
+                       ),
+              widget.Wlan(
+                  background = colors[29],
+                  foreground = colors[2],
+                  interface = 'wlp3s0',
+                  mouse_callbacks={"Button1": open_wifi_menu},
+              ),
                 widget.TextBox(
                        text = "",
                        # font = "Iosevka_Nerd_Font",
