@@ -31,3 +31,16 @@ doxygen
 rclone
 kazam
 libiw-dev
+pdftoppm
+pygmentize
+bat
+highlight
+atool
+sed
+tar
+unrar
+unzio
+lynx
+mediainfo
+catdoc
+odt2txt
