@@ -167,9 +167,9 @@ nnoremap <Leader>l
     \ :cfdo %s/<C-r>s//g \| update 
     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
-inoremap {<CR> {<CR>}<Esc>ko<tab>
-inoremap [<CR> [<CR>]<Esc>ko<tab>
-inoremap (<CR> (<CR>)<Esc>ko<tab>
+" inoremap {<CR> {<CR>}<Esc>ko<tab>
+" inoremap [<CR> [<CR>]<Esc>ko<tab>
+" inoremap (<CR> (<CR>)<Esc>ko<tab>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
