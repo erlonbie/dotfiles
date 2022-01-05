@@ -119,6 +119,7 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([mod], "m", lazy.layout.maximize(), desc='toggle window between minimum and maximum sizes'),
     
+    Key([mod], "v", lazy.spawn("alacritty -e ranger"), desc='Use next layout on the actual group'),
     Key([mod], "semicolon", lazy.spawn("pcmanfm"), desc='Use next layout on the actual group'),
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc='Use next layout on the actual group'),
     Key([mod], "Down", lazy.screen.next_group(), desc='Use next layout on the actual group'),
