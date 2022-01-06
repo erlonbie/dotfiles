@@ -744,7 +744,7 @@ def init_widgets_list():
                        text = "",
                        # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
-                       background = colors[30],
+                       background = colors[29],
                        foreground = colors[2],
                        padding = 0
                        ),
