@@ -44,3 +44,9 @@ lynx
 mediainfo
 catdoc
 odt2txt
+pandoc
+xlsx2csv
+jq
+feh
+arandr
+polkit
