@@ -50,3 +50,4 @@ jq
 feh
 arandr
 polkit
+surf
