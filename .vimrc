@@ -22,11 +22,10 @@ set undofile
 set incsearch
 set hlsearch
 set mouse=a
-packadd gruvbox-material
+" packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
 "let g:gruvbox_termcolors=16
-colorscheme gruvbox-material
 packloadall
 set rnu
 set background=dark
@@ -93,9 +92,13 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
+Plugin 'tribela/vim-transparent'
+Plugin 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 
 call vundle#end()
 
+colorscheme gruvbox-material
 filetype plugin on
 " let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid {}'"
@@ -222,7 +225,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -614,3 +617,5 @@ let g:indentLine_char = '¦'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_cursorhold_recompile = 0

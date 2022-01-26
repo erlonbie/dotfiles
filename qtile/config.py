@@ -265,7 +265,7 @@ workspaces = [
         "matches": [
             Match(wm_class="joplin"),
             # Match(wm_class="libreoffice"),
-            Match(wm_class="org.pwmt.zathura"),
+            # Match(wm_class="org.pwmt.zathura"),
         ],
     },
     {"name": "4", "key": "4", "matches": [Match(wm_class="geany")]},
@@ -341,7 +341,7 @@ layout_theme = {
     "margin": 7,
     "border_focus": "5ccc96",
     "border_normal": "0f111b",
-    "font": "FiraCode Nerd Font",
+    "font": "CartographCF",
     "grow_amount": 2,
 }
 
@@ -468,7 +468,7 @@ group_box_settings = {
 }
 
 widget_defaults = dict(
-    font="Hack", fontsize=13, padding=3, background=colors[14]
+    font="CartographCF", fontsize=13, padding=3, background=colors[14]
 )
 extension_defaults = widget_defaults.copy()
 
@@ -509,7 +509,7 @@ def init_widgets_list():
                        mouse_callbacks={"Button1": open_jgmenu},
                        ),
                 widget.GroupBox(
-                    font="Fira",
+                    font="CartographCF",
                     # background=colors[2],
                     fontsize = 15,
                     # visible_groups=["WWW"],
@@ -517,21 +517,21 @@ def init_widgets_list():
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="Fira",
+                    font="CartographCF",
                     fontsize = 15,
                     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
                     visible_groups=["2", "3", "4", "5", "6"],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="Fira",
+                    font="CartographCF",
                     fontsize = 15,
                     # visible_groups=["SYS"],
                     visible_groups=["7"],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="Fira",
+                    font="CartographCF",
                     fontsize = 15,
                     # visible_groups=["MEET", "MUS", "MP4"],
                     visible_groups=["8", "9", "0"],
@@ -546,7 +546,7 @@ def init_widgets_list():
                        padding = 0
                        ),
                 widget.TaskList(
-                       font="Hack",
+                       font="CartographCF",
                         fontsize=12,
                        borderwidth=2,
                        padding=3,
@@ -737,7 +737,7 @@ def init_widgets_list():
               widget.Wlan(
                   background = colors[29],
                   foreground = colors[2],
-                  interface = 'wlp3s0',
+                  interface = 'wlan0',
                   mouse_callbacks={"Button1": open_wifi_menu},
               ),
                 widget.TextBox(

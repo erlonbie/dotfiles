@@ -5,4 +5,4 @@ picom &
 flameshot &
 start-pulseaudio-x11 &
 copyq &
-
+nm-applet &
