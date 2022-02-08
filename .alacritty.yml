@@ -115,7 +115,7 @@ font:
     # family: Hack
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Regular
-    family: Hack
+    family: CartographCF
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -138,7 +138,7 @@ font:
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Semibold
-    family: Hack
+    family: CartographCF
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -161,7 +161,7 @@ font:
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Italic
-    family: Hack
+    family: CartographCF
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -184,7 +184,7 @@ font:
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Bold Italic
-    family: Hack
+    family: CartographCF
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono

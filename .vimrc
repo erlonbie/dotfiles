@@ -22,11 +22,10 @@ set undofile
 set incsearch
 set hlsearch
 set mouse=a
-packadd gruvbox-material
+"packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
 "let g:gruvbox_termcolors=16
-colorscheme gruvbox-material
 packloadall
 set rnu
 set background=dark
@@ -93,8 +92,12 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
+Plugin 'chrisbra/Colorizer'
+Plugin 'yuttie/comfortable-motion.vim'
 
 call vundle#end()
+
+colorscheme gruvbox-material
 
 filetype plugin on
 " let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
@@ -222,7 +225,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -614,3 +617,21 @@ let g:indentLine_char = '¦'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 
+" noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(15)<CR>
+" noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-15)<CR>
+ 
+" let g:comfortable_motion_friction = 0.0
+" let g:comfortable_motion_air_drag = 4.0
+
+" let g:comfortable_motion_friction = 200.0
+" let g:comfortable_motion_air_drag = 0.0
+
+let g:comfortable_motion_friction = 80.0
+let g:comfortable_motion_air_drag = 2.0
+
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
+nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>

@@ -16,6 +16,7 @@ import re
 import socket
 import subprocess
 import psutil
+
 from time import time
 from pathlib import Path
 
@@ -38,6 +39,8 @@ flameshot_gui = "flameshot gui"
 flameshot_save_path = "flameshot screen -p /home/erlonbie/Pictures/"
 # flameshot_save_path = "scrot /home/erlonbie/Pictures/"
 meu_step = 10000
+
+
 @hook.subscribe.startup
 def dbus_register():
     id = os.environ.get('DESKTOP_AUTOSTART_ID')
@@ -131,12 +134,10 @@ keys = [
 
     # Brightness
     # Key([], 'F7', lazy.spawn('xset dpms force off')),
-    Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
-    Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
-    Key([alt], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 1")),
-    Key([alt], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 1")),
-    # Key([], 'XF86MonBrightnessUp',   lazy.spawn("pkexec brillo -A 5")),
-    # Key([], 'XF86MonBrightnessDown',   lazy.spawn("pkexec brillo -U 5")),
+    # Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
+    # Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
+    Key([], 'XF86MonBrightnessUp',   lazy.spawn("brillo -q -A 5")),
+    Key([], 'XF86MonBrightnessDown',   lazy.spawn("brillo -q -U 5")),
     
     # Screenshots
     # Key([mod, "shift"], 'Print', lazy.function(screenshot(False, True))),
@@ -170,7 +171,6 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
-    Key([mod], "x", lazy.spawn("betterlockscreen -l"), desc="lockscreen"),
     Key([mod], "b",
          lazy.spawn(browser),
          desc='Qutebrowser'
@@ -180,7 +180,7 @@ keys = [
         "d",
         # lazy.spawn("appmenu"),
         # lazy.spawn("dmenu_run -b -p 'Run: '"),
-        lazy.spawn("rofi -show combi -font 'CartographCF 12'"),
+        lazy.spawn("rofi -show combi"),
         desc="launcher-apps ",
     ),
     Key(
@@ -337,7 +337,7 @@ for workspace in workspaces:
     )
 
 layout_theme = {
-    "border_width": 5,
+    "border_width": 2,
     "margin": 7,
     "border_focus": "5ccc96",
     "border_normal": "0f111b",
@@ -453,12 +453,12 @@ group_box_settings = {
                     "disable_drag" : True,
                     "rounded" : True,
                     "margin_y" : 3,
-                    "margin_x" : 5,
+                    "margin_x" : 2,
                     "padding_y" : 0,
-                    "padding_x" : 5,
+                    "padding_x" : 0,
                     "hide_unused" :True,
                     "highlight_color" : colors[1],
-                    "highlight_method" : "line",
+                    "highlight_method" : "border",
                     "this_current_screen_border" : colors[20],
                     "this_screen_border" : colors [1],
                     "other_current_screen_border" : colors[1],
@@ -468,7 +468,7 @@ group_box_settings = {
 }
 
 widget_defaults = dict(
-    font="CartographCF", fontsize=13, padding=3, background=colors[14]
+    font="Hack", fontsize=13, padding=3, background=colors[14]
 )
 extension_defaults = widget_defaults.copy()
 
@@ -505,11 +505,11 @@ def init_widgets_list():
                        filename="~/.config/qtile/icons/arch.png",
                        background=colors[2],
                        padding = 4,
-                       margin=4,
+                       margin=5,
                        mouse_callbacks={"Button1": open_jgmenu},
                        ),
                 widget.GroupBox(
-                    font="CartographCF",
+                    font="Fira",
                     # background=colors[2],
                     fontsize = 15,
                     # visible_groups=["WWW"],
@@ -517,21 +517,21 @@ def init_widgets_list():
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="CartographCF",
+                    font="Fira",
                     fontsize = 15,
                     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
                     visible_groups=["2", "3", "4", "5", "6"],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="CartographCF",
+                    font="Fira",
                     fontsize = 15,
                     # visible_groups=["SYS"],
                     visible_groups=["7"],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
-                    font="CartographCF",
+                    font="Fira",
                     fontsize = 15,
                     # visible_groups=["MEET", "MUS", "MP4"],
                     visible_groups=["8", "9", "0"],
@@ -546,13 +546,12 @@ def init_widgets_list():
                        padding = 0
                        ),
                 widget.TaskList(
-                       font="CartographCF",
-                       fontsize=14,
+                       font="Hack",
+                        fontsize=12,
                        borderwidth=2,
                        padding=3,
                        margin=2,
-                       icon_size = 15,
-                       highlight_method='block',
+                       highlight_method=colors[3],
                        border=colors[29],
                        background=colors[2],
                        ),
@@ -732,98 +731,13 @@ def init_widgets_list():
                        # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
-                       foreground = colors[26],
-                       padding = 0
-                       ),
-              widget.CapsNumLockIndicator(
-                       foreground = colors[2],
-                       background = colors[26],
-                       max_chars = 8
-              ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[26],
-                       foreground = colors[2],
-                       padding = 0
-                       ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[2],
-                       foreground = colors[27],
-                       padding = 0
-                       ),
-                widget.Pomodoro(
-                    background = colors[27],
-                    foreground = colors[2],
-                    prefix_inactive = "🍅"
-                ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[27],
-                       foreground = colors[2],
-                       padding = 0
-                       ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[2],
-                       foreground = colors[24],
-                       padding = 0
-                       ),
-                widget.Memory(
-                    format = ' {MemPercent}%',
-                    background = colors[24],
-                    foreground = colors[2]
-                ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[24],
-                       foreground = colors[2],
-                       padding = 0
-                       ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[2],
-                       foreground = colors[27],
-                       padding = 0
-                       ),
-              widget.CPU(
-                       foreground = colors[2],
-                       background = colors[27],
-                       format = " {load_percent}%"
-              ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[27],
-                       foreground = colors[2],
-                       padding = 0
-                       ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[2],
                        foreground = colors[29],
                        padding = 0
                        ),
               widget.Wlan(
                   background = colors[29],
                   foreground = colors[2],
-                  interface = 'wlp0s20f3',
-                  format = "{essid} {percent:2.0%}",
+                  interface = 'wlp3s0',
                   mouse_callbacks={"Button1": open_wifi_menu},
               ),
                 widget.TextBox(
@@ -913,7 +827,7 @@ def init_widgets_list():
 #                        mouse_callbacks={"Button1": open_jgmenu},
 #                        ),
 #                 widget.GroupBox(
-#                     font="CartographCF",
+#                     font="Fira",
 #                     # background=colors[2],
 #                     fontsize = 15,
 #                     # visible_groups=["WWW"],
@@ -921,21 +835,21 @@ def init_widgets_list():
 #                     **group_box_settings,
 #                 ),
 #                 widget.GroupBox(
-#                     font="CartographCF",
+#                     font="Fira",
 #                     fontsize = 15,
 #                     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
 #                     visible_groups=["2", "3", "4", "5", "6"],
 #                     **group_box_settings,
 #                 ),
 #                 widget.GroupBox(
-#                     font="CartographCF",
+#                     font="Fira",
 #                     fontsize = 15,
 #                     # visible_groups=["SYS"],
 #                     visible_groups=["7"],
 #                     **group_box_settings,
 #                 ),
 #                 widget.GroupBox(
-#                     font="CartographCF",
+#                     font="Fira",
 #                     fontsize = 15,
 #                     # visible_groups=["MEET", "MUS", "MP4"],
 #                     visible_groups=["8", "9", "0"],
@@ -1209,9 +1123,9 @@ def init_widgets_screen3():
     return widgets_screen3                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
-            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
-            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=25))]
+    return [Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
+            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
+            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=20))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
@@ -1290,4 +1204,3 @@ auto_minimize = True
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
