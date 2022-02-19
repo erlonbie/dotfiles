@@ -94,6 +94,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
 Plugin 'chrisbra/Colorizer'
 Plugin 'yuttie/comfortable-motion.vim'
+Plugin 'tribela/vim-transparent'
+" Plugin 'jupyter-vim/jupyter-vim'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
 
@@ -635,3 +638,16 @@ nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impu
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+
+" if has('vim')
+"     let g:python3_host_prog = '/usr/bin/python3'
+" else
+"     set pyxversion=3
+
+"     " OSX
+"     set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
+
+"     " Windows
+"     set pythonthreedll=python37.dll
+"     set pythonthreehome=C:\Python37
+" endif

@@ -6,4 +6,3 @@ flameshot &
 start-pulseaudio-x11 &
 nm-applet &
 copyq &
-

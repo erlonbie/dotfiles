@@ -129,6 +129,32 @@ keys = [
     Key([mod], "y", lazy.layout.shuffle_left()),
     Key([mod], "o", lazy.layout.shuffle_right()),
 
+     ### Treetab controls
+         Key([mod, "shift"], "i",
+             lazy.layout.move_up(),
+             desc='Move up a section in treetab'
+             ),
+         Key([mod, "shift"], "u",
+             lazy.layout.move_down(),
+             desc='Move down a section in treetab'
+             ),
+         Key([mod, "control"], "i",
+             lazy.layout.section_up(),
+             desc='Move up a section in treetab'
+             ),
+         Key([mod, "control"], "u",
+             lazy.layout.section_down(),
+             desc='Move down a section in treetab'
+             ),
+         Key([mod, "shift"], "y",
+             lazy.layout.move_left(),
+             desc='Move up a section in treetab'
+             ),
+         Key([mod, "shift"], "o",
+             lazy.layout.move_right(),
+             desc='Move down a section in treetab'
+             ),
+
     # Brightness
     # Key([], 'F7', lazy.spawn('xset dpms force off')),
     Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
@@ -200,11 +226,11 @@ keys = [
          desc='Keyboard focus to monitor 1'
          ),
     Key([mod], "e",
-         lazy.to_screen(1),
+         lazy.to_screen(2),
          desc='Keyboard focus to monitor 2'
          ),
     Key([mod], "r",
-         lazy.to_screen(2),
+         lazy.to_screen(1),
          desc='Keyboard focus to monitor 3'
          ),
      ### Switch focus of monitors
@@ -284,7 +310,7 @@ workspaces = [
     {"name": "8", "key": "8", "matches": [Match(wm_class="gimp")]},
     {"name": "9", "key": "9", "matches": []},
     {
-        "name": "9",
+        "name": "10",
         "key": "0",
         "matches": [
             Match(wm_class="lxappearance"),
@@ -341,15 +367,50 @@ layout_theme = {
     "margin": 7,
     "border_focus": "5ccc96",
     "border_normal": "0f111b",
-    "font": "FiraCode Nerd Font",
+    "font": "CartographCF",
     "grow_amount": 2,
 }
 
 layouts = [
     CustomBsp(**layout_theme, fair=False),
+    # layout.Max(**layout_theme),
+    # layout.Stack(num_stacks=2, **layout_theme),
+    # layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
+
+    layout.MonadWide(**layout_theme),
+    # layout.Bsp(**layout_theme),
+    #layout.Stack(stacks=2, **layout_theme),
+    layout.Columns(**layout_theme),
+    #layout.RatioTile(**layout_theme),
+    layout.Tile(shift_windows=True, **layout_theme),
+    layout.VerticalTile(**layout_theme),
+    layout.Matrix(**layout_theme),
+    layout.Zoomy(**layout_theme),
+    layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2, **layout_theme),
-    layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
+    layout.Stack(num_stacks=2),
+    layout.RatioTile(**layout_theme),
+    layout.TreeTab(
+         font = "CartographCF",
+         fontsize = 10,
+         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
+         section_fontsize = 10,
+         bg_color = "1c1f24",
+         active_bg = "c678dd",
+         active_fg = "000000",
+         inactive_bg = "a9a1e1",
+         inactive_fg = "1c1f24",
+         padding_left = 0,
+         padding_x = 0,
+         padding_y = 5,
+         section_top = 10,
+         section_bottom = 20,
+         level_shift = 8,
+         vspace = 3,
+         panel_width = 150
+         ),
+    layout.Floating(**layout_theme)
+
 ]
 
 # COLORS FOR THE BAR
@@ -460,9 +521,9 @@ group_box_settings = {
                     "highlight_color" : colors[1],
                     "highlight_method" : "line",
                     "this_current_screen_border" : colors[20],
-                    "this_screen_border" : colors [1],
+                    "this_screen_border" : colors [18],
                     "other_current_screen_border" : colors[1],
-                    "other_screen_border" : colors[1],
+                    "other_screen_border" : colors[31],
                     "foreground" : colors[11],
                     "background" : colors[2],
 }
@@ -534,7 +595,7 @@ def init_widgets_list():
                     font="CartographCF",
                     fontsize = 15,
                     # visible_groups=["MEET", "MUS", "MP4"],
-                    visible_groups=["8", "9", "0"],
+                    visible_groups=["8", "9", "10"],
                     **group_box_settings,
                 ),
                 widget.TextBox(
@@ -727,27 +788,27 @@ def init_widgets_list():
                        foreground = colors[2],
                        padding = 0
                        ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[2],
-                       foreground = colors[26],
-                       padding = 0
-                       ),
-              widget.CapsNumLockIndicator(
-                       foreground = colors[2],
-                       background = colors[26],
-                       max_chars = 8
-              ),
-                widget.TextBox(
-                       text = "",
-                       # font = "Iosevka_Nerd_Font",
-                       fontsize = 23,
-                       background = colors[26],
-                       foreground = colors[2],
-                       padding = 0
-                       ),
+                # widget.TextBox(
+                #        text = "",
+                #        # font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[2],
+                #        foreground = colors[26],
+                #        padding = 0
+                #        ),
+              # widget.CapsNumLockIndicator(
+                #        foreground = colors[2],
+                #        background = colors[26],
+                #        max_chars = 8
+              # ),
+                # widget.TextBox(
+                #        text = "",
+                #        # font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[26],
+                #        foreground = colors[2],
+                #        padding = 0
+                #        ),
                 widget.TextBox(
                        text = "",
                        # font = "Iosevka_Nerd_Font",
@@ -873,7 +934,407 @@ def init_widgets_list():
                        background = colors[13],
                        foreground = colors[2],
                         # format='%Y-%m-%d %a %I:%M %p',
-                        format='%c',
+                        # format='%c',
+                    format = " %H:%M:%S",
+                       mouse_callbacks={"Button1": open_calendar},
+                ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[13],
+                       foreground = colors[13],
+                       padding = 0
+                       ),
+                widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[13],
+                        background = colors[13]
+                        ),
+        ]
+    return widgets_list
+
+
+def init_widgets_list2():
+    widgets_list = [
+                widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[2]
+                        ),
+                widget.Image(
+                       filename="~/.config/qtile/icons/arch.png",
+                       background=colors[2],
+                       padding = 4,
+                       margin=4,
+                       mouse_callbacks={"Button1": open_jgmenu},
+                       ),
+                widget.GroupBox(
+                    font="CartographCF",
+                    # background=colors[2],
+                    fontsize = 15,
+                    # visible_groups=["WWW"],
+                    visible_groups=["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+                    **group_box_settings,
+                ),
+                # widget.GroupBox(
+                #     font="CartographCF",
+                #     fontsize = 15,
+                #     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
+                #     visible_groups=["2", "3", "4", "5", "6"],
+                #     **group_box_settings,
+                # ),
+                # widget.GroupBox(
+                #     font="CartographCF",
+                #     fontsize = 15,
+                #     # visible_groups=["SYS"],
+                #     visible_groups=["7"],
+                #     **group_box_settings,
+                # ),
+                # widget.GroupBox(
+                #     font="CartographCF",
+                #     fontsize = 15,
+                #     # visible_groups=["MEET", "MUS", "MP4"],
+                #     visible_groups=["8", "9", "0"],
+                #     **group_box_settings,
+                # ),
+                widget.TextBox(
+                       text = "",
+                       font = "Iosevka_Nerd_Font",
+                       fontsize = 24,
+                       background = colors[2],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TaskList(
+                       font="CartographCF",
+                       fontsize=14,
+                       borderwidth=2,
+                       padding=3,
+                       margin=2,
+                       icon_size = 15,
+                       highlight_method='block',
+                       border=colors[29],
+                       background=colors[2],
+                       ),
+                # widget.Sep(
+                #         linewidth = 1,
+                #         padding = 10,
+                #         foreground = colors[2],
+                #         background = colors[1]
+                #         ),
+                # widget.Mpd2(),
+                # widget.Mpd2(status_format="{play_status} {file}"),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[27],
+                       padding = 0
+                       ),
+                widget.Battery(
+                        update_interval = 3,
+                        fontsize = 13,
+                        format = '{char} {percent:2.0%}',
+                        charge_char = '🔌',
+                        discharge_char = '⚡️',
+                        full_char = '🔋',
+                        show_short_text = False,
+                        foreground = colors[2],
+                        background = colors[27],
+	                    ),
+                # widget.Spacer(
+                #        background=colors[13],
+                #        ),
+                # widget.TextBox(
+                #        text = "",
+                #        font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[13],
+                #        foreground = colors[12],
+                #        padding = 0
+                #        ),
+                # widget.TextBox(
+                #        text = "",
+                #        font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[12],
+                #        foreground = colors[7],
+                #        padding = 0
+                #        ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[27],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[25],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                    text="🔅",
+                    foreground=colors[13],
+                    background=colors[25],
+                    font = "feather",
+                    fontsize=15,
+                    padding=0,
+                ),
+                # widget.ThermalSensor(
+                #          foreground = colors[13],
+                #          foreground_alert = colors[13],
+                #          background = colors[6],
+                #          metric = True,
+                #          padding = 4,
+                #          threshold = 80
+                #          ),
+                widget.Backlight(
+                         foreground = colors[2],
+                         background = colors[25],
+                         backlight_name = 'intel_backlight',
+                         backlight_file = 'brightness',
+                         max_brightness_file = 'max_brightness',
+                         step = 10,
+                         # change_command = 'xrandr --output eDP-1 --brightness {0}',
+                         # change_command = 'echo '+str(meu_step)+' | sudo tee /sys/class/backlight/intel_backlight/brightness',
+                         ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[25],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[31],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "👂",
+                       font = "feather",
+                       fontsize = 15,
+                       background = colors[31],
+                       foreground = colors[2],
+                       padding = 0,
+                       ),
+                # widget.Memory(
+                #         background=colors[5],
+                #         foreground=colors[13],
+                #         format='{MemUsed: .0f} MB ',
+                #         ),
+                widget.Volume(
+                       foreground = colors[2],
+                       background = colors[31],
+                        mouse_callbacks = {"Button1": mute_volume, "Button2": pulse_mixer},
+                       padding = 5
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[31],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[30],
+                       padding = 0
+                       ),
+                # widget.TextBox(
+                #        text = "  ",
+                #        font = "feather",
+                #        fontsize = 12,
+                #        foreground = colors[13],
+                #        background = colors[4],
+                #        padding = 0
+                #        ),
+                # widget.CPU (
+                # foreground=colors[13],
+                # background=colors[4],
+                # ),
+              widget.CurrentLayoutIcon(
+                       custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+                       foreground = colors[2],
+                       background = colors[30],
+                       padding = 0,
+                       scale = 0.7
+                       ),
+              widget.CurrentLayout(
+                       foreground = colors[2],
+                       background = colors[30],
+                       padding = 5
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[30],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                # widget.TextBox(
+                #        text = "",
+                #        # font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[2],
+                #        foreground = colors[26],
+                #        padding = 0
+                #        ),
+              # widget.CapsNumLockIndicator(
+                #        foreground = colors[2],
+                #        background = colors[26],
+                #        max_chars = 8
+              # ),
+                # widget.TextBox(
+                #        text = "",
+                #        # font = "Iosevka_Nerd_Font",
+                #        fontsize = 23,
+                #        background = colors[26],
+                #        foreground = colors[2],
+                #        padding = 0
+                #        ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[26],
+                       padding = 0
+                       ),
+                widget.Pomodoro(
+                    background = colors[26],
+                    foreground = colors[2],
+                    prefix_inactive = "🍅"
+                ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[26],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[24],
+                       padding = 0
+                       ),
+                widget.Memory(
+                    format = ' {MemPercent}%',
+                    background = colors[24],
+                    foreground = colors[2]
+                ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[24],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[27],
+                       padding = 0
+                       ),
+              widget.CPU(
+                       foreground = colors[2],
+                       background = colors[27],
+                       format = " {load_percent}%"
+              ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[27],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[29],
+                       padding = 0
+                       ),
+              widget.Wlan(
+                  background = colors[29],
+                  foreground = colors[2],
+                  interface = 'wlp0s20f3',
+                  format = "{essid} {percent:2.0%}",
+                  mouse_callbacks={"Button1": open_wifi_menu},
+              ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[29],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[2],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "",
+                       # font = "Iosevka_Nerd_Font",
+                       fontsize = 23,
+                       background = colors[2],
+                       foreground = colors[13],
+                       padding = 0
+                       ),
+                widget.TextBox(
+                       text = "⏰",
+                       font = "feather",
+                       fontsize = 15,
+                       background = colors[13],
+                       foreground = colors[13],
+                       # padding = 3
+                       ),
+                widget.Clock(
+                       background = colors[13],
+                       foreground = colors[2],
+                        # format='%Y-%m-%d %a %I:%M %p',
+                        # format='%c',
+                    format = " %H:%M:%S",
                        mouse_callbacks={"Button1": open_calendar},
                 ),
                 widget.TextBox(
@@ -1201,51 +1662,51 @@ def init_widgets_screen1():
     return widgets_screen1
 
 def init_widgets_screen2():
-    widgets_screen2 = init_widgets_list()
+    widgets_screen2 = init_widgets_list2()
     return widgets_screen2                 # Monitor 2 will display all widgets in widgets_list
 
 def init_widgets_screen3():
-    widgets_screen3 = init_widgets_list()
+    widgets_screen3 = init_widgets_list2()
     return widgets_screen3                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
     return [Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
-            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
+            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="stretch", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
             Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=25))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
-    widgets_list = init_widgets_list()
-    widgets_screen1 = init_widgets_screen1()
-    widgets_screen2 = init_widgets_screen2()
-    widgets_screen2 = init_widgets_screen3()
+    # widgets_list = init_widgets_list()
+    # widgets_screen1 = init_widgets_screen1()
+    # widgets_screen2 = init_widgets_screen2()
+    # widgets_screen2 = init_widgets_screen3()
 
-def window_to_prev_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
+# def window_to_prev_group(qtile):
+#     if qtile.currentWindow is not None:
+#         i = qtile.groups.index(qtile.currentGroup)
+#         qtile.currentWindow.togroup(qtile.groups[i - 1].name)
 
-def window_to_next_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
+# def window_to_next_group(qtile):
+#     if qtile.currentWindow is not None:
+#         i = qtile.groups.index(qtile.currentGroup)
+#         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
-def window_to_previous_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i != 0:
-        group = qtile.screens[i - 1].group.name
-        qtile.current_window.togroup(group)
+# def window_to_previous_screen(qtile):
+#     i = qtile.screens.index(qtile.current_screen)
+#     if i != 0:
+#         group = qtile.screens[i - 1].group.name
+#         qtile.current_window.togroup(group)
 
-def window_to_next_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i + 1 != len(qtile.screens):
-        group = qtile.screens[i + 1].group.name
-        qtile.current_window.togroup(group)
+# def window_to_next_screen(qtile):
+#     i = qtile.screens.index(qtile.current_screen)
+#     if i + 1 != len(qtile.screens):
+#         group = qtile.screens[i + 1].group.name
+#         qtile.current_window.togroup(group)
 
-def switch_screens(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    group = qtile.screens[i - 1].group
-    qtile.current_screen.set_group(group)
+# def switch_screens(qtile):
+#     i = qtile.screens.index(qtile.current_screen)
+#     group = qtile.screens[i - 1].group
+#     qtile.current_screen.set_group(group)
 
 
 # Drag floating layouts.
