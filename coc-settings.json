@@ -9,9 +9,7 @@
           "directory": "/tmp/ccls"
         }
       }
-    }
-  },
-  "languageserver": {
+    },
     "prolog-lsp": {
       "command": "swipl",
       "args": [

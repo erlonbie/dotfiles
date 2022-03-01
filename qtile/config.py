@@ -275,9 +275,9 @@ keys = [
 
 
 workspaces = [
-    {"name": "1", "key": "1", "matches": [Match(wm_class="firefox")]},
+    {"name": "", "key": "1", "matches": [Match(wm_class="firefox")]},
     {
-        "name": "2",
+        "name": "",
         "key": "2",
         "matches": [
             Match(wm_class="Thunderbird"),
@@ -286,7 +286,7 @@ workspaces = [
         ],
     },
     {
-        "name": "3",
+        "name": "",
         "key": "3",
         "matches": [
             Match(wm_class="joplin"),
@@ -294,11 +294,11 @@ workspaces = [
             Match(wm_class="org.pwmt.zathura"),
         ],
     },
-    {"name": "4", "key": "4", "matches": [Match(wm_class="geany")]},
-    {"name": "5", "key": "5", "matches": [Match(wm_class="thunar")]},
+    {"name": "", "key": "4", "matches": [Match(wm_class="geany")]},
+    {"name": "", "key": "5", "matches": [Match(wm_class="thunar")]},
 
     {
-        "name": "6",
+        "name": "",
         "key": "6",
         "matches": [
             # Match(wm_class="slack"),
@@ -306,11 +306,11 @@ workspaces = [
             Match(wm_class="polari"),
         ],
     },
-    {"name": "7", "key": "7", "matches": [Match(wm_class="spotify")]},
-    {"name": "8", "key": "8", "matches": [Match(wm_class="gimp")]},
-    {"name": "9", "key": "9", "matches": []},
+    {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
+    {"name": "", "key": "8", "matches": [Match(wm_class="gimp")]},
+    {"name": "", "key": "9", "matches": []},
     {
-        "name": "10",
+        "name": "",
         "key": "0",
         "matches": [
             Match(wm_class="lxappearance"),
@@ -572,30 +572,30 @@ def init_widgets_list():
                 widget.GroupBox(
                     font="CartographCF",
                     # background=colors[2],
-                    fontsize = 15,
+                    fontsize = 25,
                     # visible_groups=["WWW"],
-                    visible_groups=["1"],
+                    visible_groups=[""],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
                     font="CartographCF",
-                    fontsize = 15,
+                    fontsize = 25,
                     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
-                    visible_groups=["2", "3", "4", "5", "6"],
+                    visible_groups=["", "", "", "", ""],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
                     font="CartographCF",
-                    fontsize = 15,
+                    fontsize = 25,
                     # visible_groups=["SYS"],
-                    visible_groups=["7"],
+                    visible_groups=[""],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
                     font="CartographCF",
-                    fontsize = 15,
+                    fontsize = 25,
                     # visible_groups=["MEET", "MUS", "MP4"],
-                    visible_groups=["8", "9", "10"],
+                    visible_groups=["", "", ""],
                     **group_box_settings,
                 ),
                 widget.TextBox(
@@ -955,9 +955,8 @@ def init_widgets_list():
         ]
     return widgets_list
 
-
 def init_widgets_list2():
-    widgets_list = [
+    widgets_list2 = [
                 widget.Sep(
                         linewidth = 1,
                         padding = 10,
@@ -974,32 +973,32 @@ def init_widgets_list2():
                 widget.GroupBox(
                     font="CartographCF",
                     # background=colors[2],
-                    fontsize = 15,
+                    fontsize = 25,
                     # visible_groups=["WWW"],
-                    visible_groups=["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+                    visible_groups=[""],
                     **group_box_settings,
                 ),
-                # widget.GroupBox(
-                #     font="CartographCF",
-                #     fontsize = 15,
-                #     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
-                #     visible_groups=["2", "3", "4", "5", "6"],
-                #     **group_box_settings,
-                # ),
-                # widget.GroupBox(
-                #     font="CartographCF",
-                #     fontsize = 15,
-                #     # visible_groups=["SYS"],
-                #     visible_groups=["7"],
-                #     **group_box_settings,
-                # ),
-                # widget.GroupBox(
-                #     font="CartographCF",
-                #     fontsize = 15,
-                #     # visible_groups=["MEET", "MUS", "MP4"],
-                #     visible_groups=["8", "9", "0"],
-                #     **group_box_settings,
-                # ),
+                widget.GroupBox(
+                    font="CartographCF",
+                    fontsize = 25,
+                    # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
+                    visible_groups=["", "", "", "", ""],
+                    **group_box_settings,
+                ),
+                widget.GroupBox(
+                    font="CartographCF",
+                    fontsize = 25,
+                    # visible_groups=["SYS"],
+                    visible_groups=[""],
+                    **group_box_settings,
+                ),
+                widget.GroupBox(
+                    font="CartographCF",
+                    fontsize = 25,
+                    # visible_groups=["MEET", "MUS", "MP4"],
+                    visible_groups=["", "", ""],
+                    **group_box_settings,
+                ),
                 widget.TextBox(
                        text = "",
                        font = "Iosevka_Nerd_Font",
@@ -1216,11 +1215,11 @@ def init_widgets_list2():
                        # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
                        background = colors[2],
-                       foreground = colors[26],
+                       foreground = colors[27],
                        padding = 0
                        ),
                 widget.Pomodoro(
-                    background = colors[26],
+                    background = colors[27],
                     foreground = colors[2],
                     prefix_inactive = "🍅"
                 ),
@@ -1228,7 +1227,7 @@ def init_widgets_list2():
                        text = "",
                        # font = "Iosevka_Nerd_Font",
                        fontsize = 23,
-                       background = colors[26],
+                       background = colors[27],
                        foreground = colors[2],
                        padding = 0
                        ),
@@ -1305,6 +1304,9 @@ def init_widgets_list2():
                        foreground = colors[2],
                        padding = 0
                        ),
+                # widget.Systray(
+                # background = colors[2],
+                # ),
                 widget.TextBox(
                        text = "",
                        # font = "Iosevka_Nerd_Font",
@@ -1352,310 +1354,7 @@ def init_widgets_list2():
                         background = colors[13]
                         ),
         ]
-    return widgets_list
-
-# screens = [
-#     Screen(
-#         wallpaper="/home/erlonbie/Downloads/gruvbox_astronaut2.png",
-#         wallpaper_mode="fill",
-#         top=bar.Bar(
-#             [
-#                 widget.Sep(
-#                         linewidth = 1,
-#                         padding = 10,
-#                         foreground = colors[2],
-#                         background = colors[2]
-#                         ),
-#                 widget.Image(
-#                        filename="~/.config/qtile/icons/arch.png",
-#                        background=colors[2],
-#                        padding = 4,
-#                        margin=5,
-#                        mouse_callbacks={"Button1": open_jgmenu},
-#                        ),
-#                 widget.GroupBox(
-#                     font="CartographCF",
-#                     # background=colors[2],
-#                     fontsize = 15,
-#                     # visible_groups=["WWW"],
-#                     visible_groups=["1"],
-#                     **group_box_settings,
-#                 ),
-#                 widget.GroupBox(
-#                     font="CartographCF",
-#                     fontsize = 15,
-#                     # visible_groups=["WEB", "TERM", "TXT", "FILES", "EDIT"],
-#                     visible_groups=["2", "3", "4", "5", "6"],
-#                     **group_box_settings,
-#                 ),
-#                 widget.GroupBox(
-#                     font="CartographCF",
-#                     fontsize = 15,
-#                     # visible_groups=["SYS"],
-#                     visible_groups=["7"],
-#                     **group_box_settings,
-#                 ),
-#                 widget.GroupBox(
-#                     font="CartographCF",
-#                     fontsize = 15,
-#                     # visible_groups=["MEET", "MUS", "MP4"],
-#                     visible_groups=["8", "9", "0"],
-#                     **group_box_settings,
-#                 ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 24,
-#                        background = colors[2],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TaskList(
-#                        font="Hack",
-#                         fontsize=12,
-#                        borderwidth=2,
-#                        padding=3,
-#                        margin=2,
-#                        highlight_method=colors[3],
-#                        border=colors[29],
-#                        background=colors[2],
-#                        ),
-#                 # widget.Sep(
-#                 #         linewidth = 1,
-#                 #         padding = 10,
-#                 #         foreground = colors[2],
-#                 #         background = colors[1]
-#                 #         ),
-#                 # widget.Mpd2(),
-#                 # widget.Mpd2(status_format="{play_status} {file}"),
-#                 widget.TextBox(
-#                        text = "",
-#                        # font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[27],
-#                        padding = 0
-#                        ),
-#                 widget.Battery(
-#                         update_interval = 3,
-#                         fontsize = 13,
-#                         format = '{char} {percent:2.0%}',
-#                         charge_char = '🔌',
-#                         discharge_char = '⚡️',
-#                         full_char = '🔋',
-#                         show_short_text = False,
-#                         foreground = colors[2],
-#                         background = colors[27],
-# 	                    ),
-#                 # widget.Spacer(
-#                 #        background=colors[13],
-#                 #        ),
-#                 # widget.TextBox(
-#                 #        text = "",
-#                 #        font = "Iosevka_Nerd_Font",
-#                 #        fontsize = 23,
-#                 #        background = colors[13],
-#                 #        foreground = colors[12],
-#                 #        padding = 0
-#                 #        ),
-#                 # widget.TextBox(
-#                 #        text = "",
-#                 #        font = "Iosevka_Nerd_Font",
-#                 #        fontsize = 23,
-#                 #        background = colors[12],
-#                 #        foreground = colors[7],
-#                 #        padding = 0
-#                 #        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[27],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[25],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                     text="🔅",
-#                     foreground=colors[13],
-#                     background=colors[25],
-#                     font = "feather",
-#                     fontsize=15,
-#                     padding=0,
-#                 ),
-#                 # widget.ThermalSensor(
-#                 #          foreground = colors[13],
-#                 #          foreground_alert = colors[13],
-#                 #          background = colors[6],
-#                 #          metric = True,
-#                 #          padding = 4,
-#                 #          threshold = 80
-#                 #          ),
-#                 widget.Backlight(
-#                          foreground = colors[2],
-#                          background = colors[25],
-#                          backlight_name = 'intel_backlight',
-#                          backlight_file = 'brightness',
-#                          max_brightness_file = 'max_brightness',
-#                          step = 10,
-#                          # change_command = 'xrandr --output eDP-1 --brightness {0}',
-#                          # change_command = 'echo '+str(meu_step)+' | sudo tee /sys/class/backlight/intel_backlight/brightness',
-#                          ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[25],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[31],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "👂",
-#                        font = "feather",
-#                        fontsize = 15,
-#                        background = colors[31],
-#                        foreground = colors[2],
-#                        padding = 0,
-#                        ),
-#                 # widget.Memory(
-#                 #         background=colors[5],
-#                 #         foreground=colors[13],
-#                 #         format='{MemUsed: .0f} MB ',
-#                 #         ),
-#                 widget.Volume(
-#                        foreground = colors[2],
-#                        background = colors[31],
-#                        padding = 5
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[31],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[30],
-#                        padding = 0
-#                        ),
-#                 # widget.TextBox(
-#                 #        text = "  ",
-#                 #        font = "feather",
-#                 #        fontsize = 12,
-#                 #        foreground = colors[13],
-#                 #        background = colors[4],
-#                 #        padding = 0
-#                 #        ),
-#                 # widget.CPU (
-#                 # foreground=colors[13],
-#                 # background=colors[4],
-#                 # ),
-#               widget.CurrentLayoutIcon(
-#                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-#                        foreground = colors[2],
-#                        background = colors[30],
-#                        padding = 0,
-#                        scale = 0.7
-#                        ),
-#               widget.CurrentLayout(
-#                        foreground = colors[2],
-#                        background = colors[30],
-#                        padding = 5
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[30],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.Systray(
-#                 background = colors[2],
-#                 ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[2],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[2],
-#                        foreground = colors[13],
-#                        padding = 0
-#                        ),
-#                 widget.TextBox(
-#                        text = "⏰",
-#                        font = "feather",
-#                        fontsize = 15,
-#                        background = colors[13],
-#                        foreground = colors[13],
-#                        # padding = 3
-#                        ),
-#                 widget.Clock(
-#                        background = colors[13],
-#                        foreground = colors[2],
-#                         # format='%Y-%m-%d %a %I:%M %p',
-#                         format='%c',
-#                        mouse_callbacks={"Button1": open_calendar},
-#                 ),
-#                 widget.TextBox(
-#                        text = "",
-#                        font = "Iosevka_Nerd_Font",
-#                        fontsize = 23,
-#                        background = colors[13],
-#                        foreground = colors[13],
-#                        padding = 0
-#                        ),
-#                 widget.Sep(
-#                         linewidth = 1,
-#                         padding = 10,
-#                         foreground = colors[13],
-#                         background = colors[13]
-#                         ),
-#             ],
-#             25,
-#             margin=[12, 15, 5, 15],
-#             opacity= 1.0,
-#         ),
-#         bottom=bar.Gap(18),
-#         left=bar.Gap(18),
-#         right=bar.Gap(18),
-#     ),
-# ]
+    return widgets_list2
 
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
@@ -1670,9 +1369,11 @@ def init_widgets_screen3():
     return widgets_screen3                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
-            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="stretch", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
-            Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen3(), opacity=1.0, size=25))]
+    return [
+        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
+        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
+        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25))
+    ]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
