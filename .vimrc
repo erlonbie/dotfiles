@@ -22,11 +22,10 @@ set undofile
 set incsearch
 set hlsearch
 set mouse=a
-packadd gruvbox-material
+" packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
 "let g:gruvbox_termcolors=16
-colorscheme gruvbox-material
 packloadall
 set rnu
 set background=dark
@@ -96,6 +95,7 @@ Plugin 'chrisbra/csv.vim'
 
 call vundle#end()
 
+colorscheme gruvbox-material
 filetype plugin on
 " let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid {}'"
@@ -555,8 +555,14 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Bullets.vim
+" let g:bullets_enabled_file_types = [
+"     \ 'markdown',
+"     \ 'text',
+"     \ 'gitcommit',
+"     \ 'scratch'
+"     \]
+
 let g:bullets_enabled_file_types = [
-    \ 'markdown',
     \ 'text',
     \ 'gitcommit',
     \ 'scratch'
