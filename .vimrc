@@ -652,3 +652,32 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 "     set pythonthreedll=python37.dll
 "     set pythonthreehome=C:\Python37
 " endif
+"
+"
+let g:coc_global_extensions = [
+      \'coc-vimlsp',
+      \'coc-snippets',
+      \'coc-prettier',
+      \'coc-pairs',
+      \'coc-marketplace',
+      \'coc-html',
+      \'coc-emoji',
+      \'coc-emmet',
+      \'coc-clang-format-style-options',
+      \'coc-yaml',
+      \'coc-tsserver',
+      \'coc-swagger',
+      \'coc-sql',
+      \'coc-pyright',
+      \'coc-prisma',
+      \'coc-omnisharp',
+      \'coc-json',
+      \'coc-java',
+      \'coc-flutter',
+      \'@frogsquare/coc-dart-analyze',
+      \]
+
+" copy (write) highlighted text to .vimbuffer
+vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+" paste from buffer
+map <C-v> :r ~/.vimbuffer<CR>
