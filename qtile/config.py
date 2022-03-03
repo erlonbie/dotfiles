@@ -250,6 +250,10 @@ keys = [
              lazy.window.toggle_fullscreen(),
              desc='toggle fullscreen'
              ),
+    Key([mod], "p",
+             lazy.spawn("fff"),
+             desc='toggle fullscreen'
+             ),
 
 
 ]
