@@ -475,7 +475,6 @@ let g:startify_bookmarks = [
             \ { 'b': '~/.bashrc' },
             \ { 't': '~/.config/qtile/config.py' },
             \ { 'a': '~/.alacritty.yml' },
-            \ { 'k': '~/.config/kitty/kitty.conf' },
             \ ]
 
 let g:startify_custom_header = [
