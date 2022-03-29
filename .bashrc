@@ -99,11 +99,6 @@ source $OSH/oh-my-bash.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-export GITHUB_USERNAME=erlonbie
-export GITHUB_ACESS_TOKEN=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
-
-export NEXUS_USERNAME=erlonbie
-export NEXUS_PASSWORD=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
 
 source /usr/share/doc/fzf/examples/completion.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
@@ -116,8 +111,7 @@ alias fzfp="fzf --preview='batcat --color=always {}'"
 alias sl="sl -e"
 source $(dirname $(gem which colorls))/tab_complete.sh
 alias lc='colorls'
-export GCLOUD_PROJECT=jusbrasil-155317
-export GCLOUD_CREDENTIALS="~/.mrcrawler/credentials.json"
+
 
 
 # MrCrawler
