@@ -97,6 +97,7 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'tribela/vim-transparent'
 " Plugin 'jupyter-vim/jupyter-vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'preservim/tagbar'
 
 call vundle#end()
 
@@ -678,6 +679,8 @@ let g:coc_global_extensions = [
       \]
 
 " copy (write) highlighted text to .vimbuffer
-vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+"vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
 " paste from buffer
-map <C-v> :r ~/.vimbuffer<CR>
+"map <C-v> :r ~/.vimbuffer<CR>
+
+nmap <C-m> :TagbarToggle<CR>

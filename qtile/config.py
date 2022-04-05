@@ -117,7 +117,7 @@ keys = [
     Key([mod], "m", lazy.layout.maximize(), desc='toggle window between minimum and maximum sizes'),
     
     Key([mod], "v", lazy.spawn("alacritty -e ranger"), desc='Use next layout on the actual group'),
-    Key([mod], "semicolon", lazy.spawn("pcmanfm"), desc='Use next layout on the actual group'),
+    Key([mod], "semicolon", lazy.spawn("thunar"), desc='Use next layout on the actual group'),
     Key([mod], "Tab", lazy.spawn("rofi -show window"), desc='Use next layout on the actual group'),
     Key([mod], "Down", lazy.screen.next_group(), desc='Use next layout on the actual group'),
     Key([mod], "Up", lazy.screen.prev_group(), desc='Use next layout on the actual group'),
@@ -157,10 +157,14 @@ keys = [
 
     # Brightness
     # Key([], 'F7', lazy.spawn('xset dpms force off')),
-    Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
-    Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
-    Key([alt], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 1")),
-    Key([alt], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 1")),
+    Key([], 'XF86MonBrightnessUp',   lazy.spawn("brilho2 -inc 10000")),
+    Key([], 'XF86MonBrightnessDown',   lazy.spawn("brilho2 -dec 10000")),
+    Key([alt], 'XF86MonBrightnessUp',   lazy.spawn("brilho2 -inc 1000")),
+    Key([alt], 'XF86MonBrightnessDown',   lazy.spawn("brilho2 -dec 1000")),
+    # Key([], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 10")),
+    # Key([], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 10")),
+    # Key([alt], 'XF86MonBrightnessUp',   lazy.spawn("xbacklight -inc 1")),
+    # Key([alt], 'XF86MonBrightnessDown',   lazy.spawn("xbacklight -dec 1")),
     # Key([], 'XF86MonBrightnessUp',   lazy.spawn("pkexec brillo -A 5")),
     # Key([], 'XF86MonBrightnessDown',   lazy.spawn("pkexec brillo -U 5")),
     
@@ -174,10 +178,15 @@ keys = [
     # Key([mod], 'Print', lazy.spawn('gnome-screenshot')),
 
     # Audio
-    Key([], 'XF86AudioMute', lazy.spawn('ponymix toggle')),
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('ponymix increase 5')),
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('ponymix decrease 5')),
+    # Key([], 'XF86AudioMute', lazy.spawn('ponymix toggle')),
+    # Key([], 'XF86AudioRaiseVolume', lazy.spawn('ponymix increase 5')),
+    # Key([], 'XF86AudioLowerVolume', lazy.spawn('ponymix decrease 5')),
     Key([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
+
+    Key([], 'XF86AudioMute', lazy.spawn('amixer -D pulse set Master 1+ toggle')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('amixer set Master 5%+')),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('amixer set Master 5%-')),
+
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -208,6 +217,12 @@ keys = [
         # lazy.spawn("dmenu_run -b -p 'Run: '"),
         lazy.spawn("rofi -show combi -font 'CartographCF 12'"),
         desc="launcher-apps ",
+    ),
+    Key(
+        [mod],
+        "p",
+        lazy.spawn("arcolinux-logout"),
+        desc="power menu screen",
     ),
     Key(
         [mod, "shift"],
@@ -254,7 +269,6 @@ keys = [
 
 ]
 
-
 # workspaces2 = [
 #     {"name": "111", "key": "1", "matches": ["firefox"]},
 #     {
@@ -275,15 +289,11 @@ keys = [
 
 
 workspaces = [
-    {"name": "", "key": "1", "matches": [Match(wm_class="firefox")]},
+    {"name": "", "key": "1", "matches": []},
     {
         "name": "",
         "key": "2",
-        "matches": [
-            Match(wm_class="Thunderbird"),
-            Match(wm_class="transmission"),
-            # Match(wm_class="gnome-calendar"),
-        ],
+        "matches": [],
     },
     {
         "name": "",
@@ -294,8 +304,8 @@ workspaces = [
             Match(wm_class="org.pwmt.zathura"),
         ],
     },
-    {"name": "", "key": "4", "matches": [Match(wm_class="geany")]},
-    {"name": "", "key": "5", "matches": [Match(wm_class="thunar")]},
+    {"name": "", "key": "4", "matches": []},
+    {"name": "", "key": "5", "matches": []},
 
     {
         "name": "",
@@ -306,8 +316,8 @@ workspaces = [
             Match(wm_class="polari"),
         ],
     },
-    {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
-    {"name": "", "key": "8", "matches": [Match(wm_class="gimp")]},
+    {"name": "", "key": "7", "matches": []},
+    {"name": "", "key": "8", "matches": []},
     {"name": "", "key": "9", "matches": []},
     {
         "name": "",
@@ -315,6 +325,7 @@ workspaces = [
         "matches": [
             Match(wm_class="lxappearance"),
             Match(wm_class="pavucontrol"),
+            Match(wm_class="pulseeffects"),
             Match(wm_class="connman-gtk"),
         ],
     },
@@ -862,7 +873,7 @@ def init_widgets_list():
               widget.CPU(
                        foreground = colors[2],
                        background = colors[27],
-                       format = " {load_percent}%"
+                       format = " {load_percent}%"
               ),
                 widget.TextBox(
                        text = "",
@@ -885,7 +896,7 @@ def init_widgets_list():
                   foreground = colors[2],
                   interface = 'wlp0s20f3',
                   format = "{essid} {percent:2.0%}",
-                  mouse_callbacks={"Button1": open_wifi_menu},
+                  # mouse_callbacks={"Button1": open_wifi_menu},
               ),
                 widget.TextBox(
                        text = "",
@@ -1286,7 +1297,7 @@ def init_widgets_list2():
                   foreground = colors[2],
                   interface = 'wlp0s20f3',
                   format = "{essid} {percent:2.0%}",
-                  mouse_callbacks={"Button1": open_wifi_menu},
+                  # mouse_callbacks={"Button1": open_wifi_menu},
               ),
                 widget.TextBox(
                        text = "",
@@ -1370,9 +1381,9 @@ def init_widgets_screen3():
 
 def init_screens():
     return [
-        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
-        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
-        Screen(wallpaper="/home/erlonbie/Downloads/linux.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25))
+        Screen(wallpaper="/home/erlonbie/Downloads/linux_penguin.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=25)),
+        Screen(wallpaper="/home/erlonbie/Downloads/linux_penguin.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25)),
+        Screen(wallpaper="/home/erlonbie/Downloads/linux_penguin.jpg", wallpaper_mode="fill", top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=25))
     ]
 
 if __name__ in ["config", "__main__"]:
