@@ -221,7 +221,7 @@ keys = [
     Key(
         [mod],
         "p",
-        lazy.spawn("arcolinux-logout"),
+        lazy.spawn("archlinux-logout"),
         desc="power menu screen",
     ),
     Key(
@@ -301,7 +301,7 @@ workspaces = [
         "matches": [
             Match(wm_class="joplin"),
             # Match(wm_class="libreoffice"),
-            Match(wm_class="org.pwmt.zathura"),
+            # Match(wm_class="org.pwmt.zathura"),
         ],
     },
     {"name": "", "key": "4", "matches": []},
@@ -404,8 +404,8 @@ layouts = [
     layout.TreeTab(
          font = "CartographCF",
          fontsize = 10,
-         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
-         section_fontsize = 10,
+         # sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
+         sections = ["1","2","3","4","5","6","7","8","9","10"], section_fontsize = 10,
          bg_color = "1c1f24",
          active_bg = "c678dd",
          active_fg = "000000",
@@ -945,8 +945,8 @@ def init_widgets_list():
                        background = colors[13],
                        foreground = colors[2],
                         # format='%Y-%m-%d %a %I:%M %p',
-                        # format='%c',
-                    format = " %H:%M:%S",
+                        format='%c',
+                    # format = " %H:%M:%S",
                        mouse_callbacks={"Button1": open_calendar},
                 ),
                 widget.TextBox(

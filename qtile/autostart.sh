@@ -9,3 +9,5 @@ flameshot &
 # wireplumber &
 nm-applet &
 copyq &
+setxkbmap -layout br,us
+setxkbmap -option 'grp:alt_shift_toggle'
