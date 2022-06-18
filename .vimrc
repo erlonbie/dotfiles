@@ -117,6 +117,7 @@ Plugin 'wesQ3/vim-windowswap'
 " " For experimental function extraction
 " Plugin 'LucHermitte/mu-template'
 " Plugin 'tomtom/stakeholders_vim'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -496,7 +497,6 @@ let g:startify_bookmarks = [
             \ { 'b': '~/.bashrc' },
             \ { 't': '~/.config/qtile/config.py' },
             \ { 'a': '~/.alacritty.yml' },
-            \ { 'k': '~/.config/kitty/kitty.conf' },
             \ ]
 
 let g:startify_custom_header = [
