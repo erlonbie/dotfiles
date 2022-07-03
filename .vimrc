@@ -2,6 +2,8 @@ filetype plugin on
 syntax on
 filetype on
 
+" set foldmethod=syntax
+" set foldmethod=indent
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -118,6 +120,7 @@ Plugin 'wesQ3/vim-windowswap'
 " Plugin 'LucHermitte/mu-template'
 " Plugin 'tomtom/stakeholders_vim'
 Plugin 'fatih/vim-go'
+Plugin 'Jorengarenar/vim-syntaxMarkerFold'
 
 call vundle#end()
 
@@ -175,8 +178,6 @@ au BufReadPost *.handlebars set filetype=html syntax=handlebars
 :command Q q
 :command W w
 :command Wq wq
-
-" set runtimepath-=~/.vim/bundle/YouCompleteMe
 
 autocmd BufWritePre *.js Neoformat
 
@@ -585,7 +586,6 @@ let g:ctrlp_custom_ignore = {
 " Bullets.vim
 let g:bullets_enabled_file_types = [
     \ 'markdown',
-    \ 'text',
     \ 'gitcommit',
     \ 'scratch'
     \]
@@ -593,27 +593,32 @@ let g:bullets_enabled_file_types = [
 " Move current tab into the specified direction.
 "
 " @param direction -1 for left, 1 for right.
-function! TabMove(direction)
-    " get number of tab pages.
-    let ntp=tabpagenr("$")
-    " move tab, if necessary.
-    if ntp > 1
-        " get number of current tab page.
-        let ctpn=tabpagenr()
-        " move left.
-        if a:direction < 0
-            let index=((ctpn-1+ntp-1)%ntp)
-        else
-            let index=(ctpn%ntp)
-        endif
+" function! TabMove(direction)
+"     " get number of tab pages.
+"     let ntp=tabpagenr("$")
+"     " move tab, if necessary.
+"     if ntp > 1
+"         " get number of current tab page.
+"         let ctpn=tabpagenr()
+"         " move left.
+"         if a:direction < 0
+"             let index=((ctpn-1+ntp-1)%ntp)
+"         else
+"             let index=(ctpn%ntp)
+"         endif
 
-        " move tab page.
-        execute "tabmove ".index
-    endif
-endfunction
+"         " move tab page.
+"         execute "tabmove ".index
+"     endif
+" endfunction
 
-map <C-h> :call TabMove(-1)<CR>
-map <C-l> :call TabMove(1)<CR>
+" map <C-h> :call TabMove(-1)<CR>
+" map <C-l> :call TabMove(1)<CR>
+
+nmap <C-l> zfi{
+nmap <C-h> :set foldmethod=indent<CR>
+nmap <C-c> :set foldmethod=manual<CR>
+nmap <C-e> :e<CR>
 
 let g:LanguageClient_serverCommands = {
 \ 'prolog': ['swipl',
@@ -658,8 +663,8 @@ let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+" nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+" nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
 
 " if has('vim')
 "     let g:python3_host_prog = '/usr/bin/python3'
@@ -703,7 +708,7 @@ let g:coc_global_extensions = [
 " paste from buffer
 "map <C-v> :r ~/.vimbuffer<CR>
 
-nmap <C-m> :TagbarToggle<CR>
+nmap <C-T> :TagbarToggle<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
@@ -801,3 +806,8 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+nmap <C-f> :Files<CR>
+nmap <C-b> :Ag<CR>
+
+let g:go_def_mapping_enabled=0

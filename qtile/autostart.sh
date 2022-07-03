@@ -1,7 +1,7 @@
 #!/bin/sh
 
-xset r rate 250 45 &
-picom &
+xset r rate 200 60 &
+# picom &
 flameshot &
 # start-pulseaudio-x11 &
 # pipewire &
