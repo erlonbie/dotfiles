@@ -1,4 +1,11 @@
 {
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "ﯧ",
+  "diagnostic.checkCurrentLine": false,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -9,9 +16,7 @@
           "directory": "/tmp/ccls"
         }
       }
-    }
-  },
-  "languageserver": {
+    },
     "prolog-lsp": {
       "command": "swipl",
       "args": [

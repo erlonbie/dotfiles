@@ -2,6 +2,8 @@ filetype plugin on
 syntax on
 filetype on
 
+" set foldmethod=syntax
+" set foldmethod=indent
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -22,6 +24,7 @@ set undofile
 set incsearch
 set hlsearch
 set mouse=a
+set lazyredraw
 "packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
@@ -29,12 +32,16 @@ set termguicolors
 packloadall
 set rnu
 set background=dark
-let g:lightline = { 'colorscheme': 'palenight' }
+" let g:lightline = { 'colorscheme': 'palenight' }
 " Italics for my favorite color scheme
-let g:palenight_terminal_italics=1
-let g:palenight_color_overrides = {
-\    'black': { 'gui': '#000000', "cterm": "0", "cterm16": "0" },
-\}
+" let g:palenight_terminal_italics=1
+" let g:palenight_color_overrides = {
+" \    'black': { 'gui': '#000000', 
+"cterm": 
+"0", 
+"cterm16": 
+"0" },
+" \}
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -94,16 +101,45 @@ Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
 Plugin 'chrisbra/Colorizer'
 Plugin 'yuttie/comfortable-motion.vim'
+Plugin 'tribela/vim-transparent'
+" Plugin 'jupyter-vim/jupyter-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'preservim/tagbar'
+Plugin 'puremourning/vimspector'
+Plugin 'sainnhe/everforest'
+Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'wesQ3/vim-windowswap'
+
+" Plugin 'LucHermitte/lh-vim-lib'
+" Plugin 'LucHermitte/lh-tags'
+" Plugin 'LucHermitte/lh-dev'
+" Plugin 'LucHermitte/lh-style'
+" Plugin 'LucHermitte/lh-brackets'
+" Plugin 'LucHermitte/vim-refactor'
+
+" " For experimental function extraction
+" Plugin 'LucHermitte/mu-template'
+" Plugin 'tomtom/stakeholders_vim'
+Plugin 'fatih/vim-go'
+Plugin 'Jorengarenar/vim-syntaxMarkerFold'
+
+Plugin 'lambdalisue/fern.vim'
+Plugin 'lambdalisue/fern-git-status.vim'
+Plugin 'lambdalisue/glyph-palette.vim'
+Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
+Plugin 'lambdalisue/nerdfont.vim'
+Plugin 'lambdalisue/fern-hijack.vim'
 
 call vundle#end()
 
 colorscheme gruvbox-material
 
 filetype plugin on
-" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='batcat --color=always --style=header,grid --line-range :100 {}'"
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid {}'"
+" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='bat --color=always --style=header,grid --line-range :100 {}'"
+" let $FZF_DEFAULT_OPTS='--ansi --preview-window right:60% --preview "bat --color=always --style=header,grid {}'
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 " let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
-let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
+" let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -127,21 +163,21 @@ let g:markdown_fenced_languages = [
 
 
 "set encoding=UTF-8
-map <C-Right> :bn<CR>  
-map <C-Left> :bp<CR>  
+map <S-L> :bn<CR>  
+map <S-H> :bp<CR>  
+map <C-x> :bw<CR>  
 "nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeIgnore = ['^node_modules$']
-" map <C-n> :NERDTreeToggle<CR>
 
 
-map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+" map <C-n> :call NERDTreeToggleAndRefresh()<CR>
 
-function NERDTreeToggleAndRefresh()
-  :NERDTreeToggle
-  if g:NERDTree.IsOpen()
-    :NERDTreeRefreshRoot
-  endif
-endfunction
+" function NERDTreeToggleAndRefresh()
+"   :NERDTreeToggle
+"   if g:NERDTree.IsOpen()
+"     :NERDTreeRefreshRoot
+"   endif
+" endfunction
 
 
 
@@ -150,8 +186,6 @@ au BufReadPost *.handlebars set filetype=html syntax=handlebars
 :command Q q
 :command W w
 :command Wq wq
-
-" set runtimepath-=~/.vim/bundle/YouCompleteMe
 
 autocmd BufWritePre *.js Neoformat
 
@@ -560,7 +594,6 @@ let g:ctrlp_custom_ignore = {
 " Bullets.vim
 let g:bullets_enabled_file_types = [
     \ 'markdown',
-    \ 'text',
     \ 'gitcommit',
     \ 'scratch'
     \]
@@ -568,27 +601,32 @@ let g:bullets_enabled_file_types = [
 " Move current tab into the specified direction.
 "
 " @param direction -1 for left, 1 for right.
-function! TabMove(direction)
-    " get number of tab pages.
-    let ntp=tabpagenr("$")
-    " move tab, if necessary.
-    if ntp > 1
-        " get number of current tab page.
-        let ctpn=tabpagenr()
-        " move left.
-        if a:direction < 0
-            let index=((ctpn-1+ntp-1)%ntp)
-        else
-            let index=(ctpn%ntp)
-        endif
+" function! TabMove(direction)
+"     " get number of tab pages.
+"     let ntp=tabpagenr("$")
+"     " move tab, if necessary.
+"     if ntp > 1
+"         " get number of current tab page.
+"         let ctpn=tabpagenr()
+"         " move left.
+"         if a:direction < 0
+"             let index=((ctpn-1+ntp-1)%ntp)
+"         else
+"             let index=(ctpn%ntp)
+"         endif
 
-        " move tab page.
-        execute "tabmove ".index
-    endif
-endfunction
+"         " move tab page.
+"         execute "tabmove ".index
+"     endif
+" endfunction
 
-map <C-h> :call TabMove(-1)<CR>
-map <C-l> :call TabMove(1)<CR>
+" map <C-h> :call TabMove(-1)<CR>
+" map <C-l> :call TabMove(1)<CR>
+
+nmap <C-l> zfi{
+nmap <C-h> :set foldmethod=indent<CR>
+nmap <C-c> :set foldmethod=manual<CR>
+nmap <C-e> :e<CR>
 
 let g:LanguageClient_serverCommands = {
 \ 'prolog': ['swipl',
@@ -633,5 +671,195 @@ let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+" nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+" nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+
+" if has('vim')
+"     let g:python3_host_prog = '/usr/bin/python3'
+" else
+"     set pyxversion=3
+
+"     " OSX
+"     set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
+
+"     " Windows
+"     set pythonthreedll=python37.dll
+"     set pythonthreehome=C:\Python37
+" endif
+"
+"
+let g:coc_global_extensions = [
+      \'coc-vimlsp',
+      \'coc-snippets',
+      \'coc-prettier',
+      \'coc-pairs',
+      \'coc-marketplace',
+      \'coc-html',
+      \'coc-emoji',
+      \'coc-emmet',
+      \'coc-clang-format-style-options',
+      \'coc-yaml',
+      \'coc-tsserver',
+      \'coc-swagger',
+      \'coc-sql',
+      \'coc-pyright',
+      \'coc-prisma',
+      \'coc-omnisharp',
+      \'coc-json',
+      \'coc-java',
+      \'coc-flutter',
+      \'@frogsquare/coc-dart-analyze',
+      \]
+
+" copy (write) highlighted text to .vimbuffer
+"vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+" paste from buffer
+"map <C-v> :r ~/.vimbuffer<CR>
+
+nmap <C-T> :TagbarToggle<CR>
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
+
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 0
+
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = ''
+
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+" content_editable: if enable content editable for preview page, default: v:false
+" disable_filename: if disable filename header for preview page, default: 0
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+" use a custom markdown style must be absolute path
+" like '/Users/username/markdown.css' or expand('~/markdown.css')
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+" like '/Users/username/highlight.css' or expand('~/highlight.css')
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+nmap <C-f> :Files<CR>
+nmap <C-b> :Ag<CR>
+
+let g:go_def_mapping_enabled=0
+
+autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+let g:NERDTreeHijackNetrw=0
+
+nnoremap <C-n> :Fern . -drawer -toggle<cr>
+let g:fern#renderer = "nerdfont"
+let g:fern#disable_viewer_smart_cursor = 1
+
+function! s:init_fern() abort
+  nmap <buffer> I <Plug>(fern-action-hidden:toggle)
+  nmap <buffer> H <Plug>(fern-action-open:split)
+  nmap <buffer> V <Plug>(fern-action-open:vsplit)
+  nmap <buffer> R <Plug>(fern-action-rename)
+  nmap <buffer> M <Plug>(fern-action-move)
+  nmap <buffer> C <Plug>(fern-action-new-copy)
+  nmap <buffer> N <Plug>(fern-action-new-path)
+  nmap <buffer> F <Plug>(fern-action-new-file)
+  nmap <buffer> D <Plug>(fern-action-new-dir)
+  nmap <buffer> dd <Plug>(fern-action-trash)
+  nmap <buffer><expr>
+        \ <Plug>(fern-my-open-expand-collapse)
+        \ fern#smart#leaf(
+        \   "\<Plug>(fern-action-open:select)",
+        \   "\<Plug>(fern-action-expand)",
+        \   "\<Plug>(fern-action-collapse)",
+        \ )
+  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer><nowait> < <Plug>(fern-action-leave)
+  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+endfunction
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType fern call s:init_fern()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END

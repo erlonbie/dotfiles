@@ -10,7 +10,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  TERM: xterm-kitty
 
 window:
   # Window dimensions (changes require restart)
@@ -34,11 +34,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -81,7 +81,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 5000
+  history: 10000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -112,10 +112,12 @@ font:
     # family: Source Code Pro
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
-    # family: Hack
+    # family: Hack Nerd Font Mono
+    # family: Hack Nerd Font Mono
     # family: Droid Sans Mono Nerd Font
-    # family: FiraCode Nerd Font Regular
-    family: CartographCF
+    family: FiraCode Nerd Font
+    # family: CartographCF
+    # family: MesloLGSDZ Nerd Font
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -123,7 +125,7 @@ font:
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Retina
 
   # Bold font face
   bold:
@@ -135,10 +137,14 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
+    # family: Hack Nerd Font Mono
+    family: FiraCode Nerd Font
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Semibold
-    family: CartographCF
+    # family: CartographCF
+    # family: MesloLGSDZ Nerd Font
+    # family: FiraCode Nerd Font
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -158,10 +164,15 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
+    # family: Hack Nerd Font Mono
+    family: FiraCode Nerd Font
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Italic
-    family: CartographCF
+    # family: CartographCF
+    # family: CartographCF
+    # family: MesloLGSDZ Nerd Font
+    # family: FiraCode Nerd Font
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -181,10 +192,14 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
+    # family: Hack Nerd Font Mono
+    family: FiraCode Nerd Font
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Bold Italic
-    family: CartographCF
+    # family: CartographCF
+    # family: MesloLGSDZ Nerd Font
+    # family: FiraCode Nerd Font
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -195,13 +210,13 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 1
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -682,8 +697,8 @@ colors: *gruvbox_material_soft_dark
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window.opacity: 1.0
-# background-opacity: 0.50
+window.opacity: 0.5
+background-opacity: 0.50
 # menu-opacity = 1.0
 #
 # inactive-opacity-override = true
