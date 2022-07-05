@@ -863,3 +863,6 @@ augroup my-glyph-palette
   autocmd FileType fern call s:init_fern()
   autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
+
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+xnoremap <expr> P 'Pgv"'.v:register.'y`>'
