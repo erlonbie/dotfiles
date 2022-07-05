@@ -24,6 +24,7 @@ set undofile
 set incsearch
 set hlsearch
 set mouse=a
+set lazyredraw
 "packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
@@ -122,6 +123,13 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'fatih/vim-go'
 Plugin 'Jorengarenar/vim-syntaxMarkerFold'
 
+Plugin 'lambdalisue/fern.vim'
+Plugin 'lambdalisue/fern-git-status.vim'
+Plugin 'lambdalisue/glyph-palette.vim'
+Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
+Plugin 'lambdalisue/nerdfont.vim'
+Plugin 'lambdalisue/fern-hijack.vim'
+
 call vundle#end()
 
 colorscheme gruvbox-material
@@ -155,21 +163,21 @@ let g:markdown_fenced_languages = [
 
 
 "set encoding=UTF-8
-map <C-Right> :bn<CR>  
-map <C-Left> :bp<CR>  
+map <S-L> :bn<CR>  
+map <S-H> :bp<CR>  
+map <C-x> :bw<CR>  
 "nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeIgnore = ['^node_modules$']
-" map <C-n> :NERDTreeToggle<CR>
 
 
-map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+" map <C-n> :call NERDTreeToggleAndRefresh()<CR>
 
-function NERDTreeToggleAndRefresh()
-  :NERDTreeToggle
-  if g:NERDTree.IsOpen()
-    :NERDTreeRefreshRoot
-  endif
-endfunction
+" function NERDTreeToggleAndRefresh()
+"   :NERDTreeToggle
+"   if g:NERDTree.IsOpen()
+"     :NERDTreeRefreshRoot
+"   endif
+" endfunction
 
 
 
@@ -811,3 +819,47 @@ nmap <C-f> :Files<CR>
 nmap <C-b> :Ag<CR>
 
 let g:go_def_mapping_enabled=0
+
+autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+let g:NERDTreeHijackNetrw=0
+
+nnoremap <C-n> :Fern . -drawer -toggle<cr>
+let g:fern#renderer = "nerdfont"
+let g:fern#disable_viewer_smart_cursor = 1
+
+function! s:init_fern() abort
+  nmap <buffer> I <Plug>(fern-action-hidden:toggle)
+  nmap <buffer> H <Plug>(fern-action-open:split)
+  nmap <buffer> V <Plug>(fern-action-open:vsplit)
+  nmap <buffer> R <Plug>(fern-action-rename)
+  nmap <buffer> M <Plug>(fern-action-move)
+  nmap <buffer> C <Plug>(fern-action-new-copy)
+  nmap <buffer> N <Plug>(fern-action-new-path)
+  nmap <buffer> F <Plug>(fern-action-new-file)
+  nmap <buffer> D <Plug>(fern-action-new-dir)
+  nmap <buffer> dd <Plug>(fern-action-trash)
+  nmap <buffer><expr>
+        \ <Plug>(fern-my-open-expand-collapse)
+        \ fern#smart#leaf(
+        \   "\<Plug>(fern-action-open:select)",
+        \   "\<Plug>(fern-action-expand)",
+        \   "\<Plug>(fern-action-collapse)",
+        \ )
+  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer><nowait> < <Plug>(fern-action-leave)
+  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+endfunction
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType fern call s:init_fern()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
