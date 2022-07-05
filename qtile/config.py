@@ -420,7 +420,12 @@ layouts = [
          vspace = 3,
          panel_width = 150
          ),
-    layout.Floating(**layout_theme)
+    layout.Floating(**layout_theme,
+                    float_rules=[*layout.Floating.default_float_rules, 
+                                 Match(wm_class='calcurse'),
+                                 Match(title='calcurse')
+                                 ]
+                    )
 
 ]
 
@@ -551,7 +556,7 @@ def open_jgmenu():
     qtile.cmd_spawn("jgmenu_run")
 
 def open_calendar():
-    qtile.cmd_spawn("gnome-calendar")
+    qtile.cmd_spawn("alacritty -e calcurse")
 
 def open_pacman():
     qtile.cmd_spawn("alacritty -e sudo pacman -Syu")
