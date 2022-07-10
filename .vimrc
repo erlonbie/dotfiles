@@ -99,7 +99,7 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
-Plugin 'chrisbra/Colorizer'
+" Plugin 'chrisbra/Colorizer'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'tribela/vim-transparent'
 " Plugin 'jupyter-vim/jupyter-vim'
@@ -130,15 +130,22 @@ Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
 Plugin 'lambdalisue/nerdfont.vim'
 Plugin 'lambdalisue/fern-hijack.vim'
 
+Plugin 'easymotion/vim-easymotion'
+Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()
 
 colorscheme gruvbox-material
 
 filetype plugin on
+
+nnoremap <silent> <Leader><Enter> :Buffers<CR>
 " let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='bat --color=always --style=header,grid --line-range :100 {}'"
 " let $FZF_DEFAULT_OPTS='--ansi --preview-window right:60% --preview "bat --color=always --style=header,grid {}'
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
-" let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
+" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
 " let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -191,7 +198,11 @@ autocmd BufWritePre *.js Neoformat
 
 nnoremap <Leader>r :%s///g<Left><Left>
 
-command! -bang -nargs=* Rg \ call fzf#vim#grep( \ "rg --column --line-number --no-heading --color=always --smart-case " . \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
+" command! -bang -nargs=* Rg \ call fzf#vim#grep( \ "rg --column --line-number --no-heading --color=always --smart-case " . \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \ "rg --column --line-number --no-heading --color=always --smart-case " .
+  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
 " mhinz/vim-grepper" .............................................................................
 let g:grepper={}
@@ -626,7 +637,7 @@ let g:bullets_enabled_file_types = [
 nmap <C-l> zfi{
 nmap <C-h> :set foldmethod=indent<CR>
 nmap <C-c> :set foldmethod=manual<CR>
-nmap <C-e> :e<CR>
+" nmap <C-e> :e<CR>
 
 let g:LanguageClient_serverCommands = {
 \ 'prolog': ['swipl',
@@ -866,3 +877,37 @@ augroup END
 
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 xnoremap <expr> P 'Pgv"'.v:register.'y`>'
+
+" highlight Pmenu guibg=#d8a657 guifg=black gui=bold
+" highlight CursorHold guibg=#d8a657 gui=bold
+" highlight Fold guibg=#d8a657 gui=bold
+
+" <Leader>f{char} to move to {char}
+map  <Leader><leader>f <Plug>(easymotion-bd-f)
+nmap <Leader><leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader><leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader><leader>l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader><leader>w <Plug>(easymotion-bd-w)
+nmap <Leader><leader>w <Plug>(easymotion-overwin-w)
+
+" Vim default
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-o>'
+let g:multi_cursor_select_all_word_key = '<C-e>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<C-e>'
+let g:multi_cursor_next_key            = '<C-o>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-X>'
+let g:multi_cursor_quit_key            = '<Esc>'

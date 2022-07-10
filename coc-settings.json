@@ -6,6 +6,44 @@
   "diagnostic.checkCurrentLine": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": true,
+  "suggest.echodocSupport": true,
+  "suggest.enablePreview": true,
+  "suggest.snippetIndicator": " [s]",
+  "suggest.disableMenuShortcut": true,
+  "suggest.labelMaxLength": 50,
+  "hover.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "focusable": true,
+    "borderhighlight": "green",
+    "winblend": 0,
+    "shadow": true
+  },
+  "suggest.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "focusable": true,
+    "borderhighlight": "green",
+    "winblend": 0,
+    "shadow": true
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "focusable": true,
+    "borderhighlight": "green",
+    "winblend": 0,
+    "shadow": true
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "highlight": "CocFloating",
+    "focusable": true,
+    "title": "Teste",
+    "borderhighlight": "green",
+    "winblend": 0,
+    "shadow": true
+  },
   "languageserver": {
     "ccls": {
       "command": "ccls",
