@@ -303,7 +303,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -317,10 +317,10 @@ let g:UltiSnipsExpandTrigger = '<C-0>'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:coc_snippet_next = '<c-Tab>'
-let g:coc_snippet_prev = '<s-Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<C-Tab>'
-let g:UltiSnipsJumpBackwardTriggerr = '<S-TAB>'
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<C-Tab>'
+" let g:UltiSnipsJumpBackwardTriggerr = '<S-TAB>'
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -840,7 +840,9 @@ let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
 let g:NERDTreeHijackNetrw=0
 
-nnoremap <C-n> :Fern . -drawer -toggle<cr>
+" nnoremap <C-n> :Fern . -drawer -toggle<cr>
+nnoremap <C-n> :Fern %:h -drawer -toggle<cr>
+
 let g:fern#renderer = "nerdfont"
 let g:fern#disable_viewer_smart_cursor = 1
 
