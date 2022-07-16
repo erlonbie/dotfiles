@@ -14,7 +14,7 @@ set hidden
 set scrolloff=10
 set sidescrolloff=5
 set sidescroll=1
-set nohlsearch 
+set nohlsearch
 set nowrap
 set smartcase
 set noswapfile
@@ -36,10 +36,10 @@ set background=dark
 " Italics for my favorite color scheme
 " let g:palenight_terminal_italics=1
 " let g:palenight_color_overrides = {
-" \    'black': { 'gui': '#000000', 
-"cterm": 
-"0", 
-"cterm16": 
+" \    'black': { 'gui': '#000000',
+"cterm":
+"0",
+"cterm16":
 "0" },
 " \}
 set nocompatible
@@ -134,6 +134,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 call vundle#end()
 
@@ -161,7 +162,7 @@ let g:minimap_close='<leader>gc'
 let g:minimap_toggle='<leader>gt'
 let g:minimap_highlight='Visual'
 
-syn match parens /[(){}]/ 
+syn match parens /[(){}]/
 
 let g:markdown_fenced_languages = [
       \ 'vim',
@@ -170,9 +171,9 @@ let g:markdown_fenced_languages = [
 
 
 "set encoding=UTF-8
-map <S-L> :bn<CR>  
-map <S-H> :bp<CR>  
-map <C-x> :bw<CR>  
+map <S-L> :bn<CR>
+map <S-H> :bp<CR>
+map <C-x> :bw<CR>
 "nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeIgnore = ['^node_modules$']
 
@@ -206,13 +207,13 @@ command! -bang -nargs=* Rg
 
 " mhinz/vim-grepper" .............................................................................
 let g:grepper={}
-let g:grepper.tools=["rg"] 
-xmap gr <plug>(GrepperOperator) 
+let g:grepper.tools=["rg"]
+xmap gr <plug>(GrepperOperator)
 " After searching for text, press this mapping to do a project wide find and" replace. It's similar to <leader>r except this one applies to all matches" across all files instead of just the current file.
-nnoremap <Leader>l 
-    \ :let @s='\<'.expand('<cword>').'\>'<CR> 
-    \ :Grepper -cword -noprompt<CR> 
-    \ :cfdo %s/<C-r>s//g \| update 
+nnoremap <Leader>l
+    \ :let @s='\<'.expand('<cword>').'\>'<CR>
+    \ :Grepper -cword -noprompt<CR>
+    \ :cfdo %s/<C-r>s//g \| update
     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " inoremap {<CR> {<CR>}<Esc>ko<tab>
@@ -256,7 +257,7 @@ let g:airline#extensions#tabline#formatter = 'default'
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ' ☰  '
     let g:airline_symbols.maxlinenr = '  '
-   
+
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -399,12 +400,12 @@ omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  nnoremap <silent><nowait><expr> <C-Down> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-d>"
+  nnoremap <silent><nowait><expr> <C-Up> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
+  inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-d>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
 endif
 
 " Use CTRL-S for selections ranges.
@@ -443,7 +444,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-    
+
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
@@ -493,7 +494,7 @@ let g:closetag_close_shortcut = '<leader>>'
 
 
 "rainbow brackets
-let g:rainbow_active = 1 
+let g:rainbow_active = 1
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -503,7 +504,7 @@ highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=und
 
 let g:qs_max_chars=150
 
-"startify 
+"startify
 
 let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -530,7 +531,7 @@ let g:startify_custom_header = [
       \ ' \________|\__|      \__| \______/ \__|  \__|\_______/           \_/    \__|\__| \__| \__|',
       \]
 
-"NERDTree-git 
+"NERDTree-git
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -545,7 +546,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-"Git-gutter 
+"Git-gutter
 
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '✹'
@@ -553,7 +554,7 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
 let g:gitgutter_sign_modified_removed = '-'
 
-"Gblame 
+"Gblame
 nnoremap <Leader>ss :<C-u>call gitblame#echo()<CR>
 
 function! s:ToggleBlame()
@@ -566,7 +567,7 @@ endfunction
 
 nnoremap <leader>b :call <SID>ToggleBlame()<CR>
 
-"Float term 
+"Float term
 
 let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_next   = '<F2>'
@@ -668,7 +669,7 @@ let g:indentLine_conceallevel = 2
 
 " noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(15)<CR>
 " noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-15)<CR>
- 
+
 " let g:comfortable_motion_friction = 0.0
 " let g:comfortable_motion_air_drag = 4.0
 
@@ -913,3 +914,9 @@ let g:multi_cursor_next_key            = '<C-o>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-X>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
