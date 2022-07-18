@@ -9,7 +9,6 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
 set hidden
 set scrolloff=10
 set sidescrolloff=5
@@ -25,6 +24,11 @@ set incsearch
 set hlsearch
 set mouse=a
 set lazyredraw
+set clipboard=unnamedplus
+set wildmenu
+" set wildmode=full,full
+set wildoptions=pum
+set ttyfast
 "packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
@@ -380,6 +384,7 @@ augroup end
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
+" TODO: criar snippets <17-07-22, erlonbie> "
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
@@ -664,8 +669,8 @@ let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_bgcolor_term = 202
 let g:indentLine_bgcolor_gui = '#FF5F00'
 let g:indentLine_char = '¦'
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
+let g:indentLine_concealcursor = 'nv'
+let g:indentLine_conceallevel = 0
 
 " noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(15)<CR>
 " noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-15)<CR>
@@ -920,3 +925,5 @@ fun! TrimWhitespace()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
+
+xmap <leader>x  <Plug>(coc-convert-snippet)
