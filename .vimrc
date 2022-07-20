@@ -139,10 +139,14 @@ Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'junegunn/goyo.vim'
+" Plugin 'akinsho/bufferline.nvim'
 
 call vundle#end()
 
 colorscheme gruvbox-material
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey20
 
 filetype plugin on
 
@@ -669,8 +673,12 @@ let g:indentLine_color_dark = 1 " (default: 2)
 let g:indentLine_bgcolor_term = 202
 let g:indentLine_bgcolor_gui = '#FF5F00'
 let g:indentLine_char = '¦'
-let g:indentLine_concealcursor = 'nv'
-let g:indentLine_conceallevel = 0
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+" let g:indentLine_setColors = 0
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
+au FileType markdown let g:indentLine_setConceal= 0
 
 " noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(15)<CR>
 " noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-15)<CR>
@@ -846,8 +854,8 @@ let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
 let g:NERDTreeHijackNetrw=0
 
-" nnoremap <C-n> :Fern . -drawer -toggle<cr>
-nnoremap <C-n> :Fern %:h -drawer -toggle<cr>
+nnoremap <C-n> :Fern . -drawer -toggle<cr>
+" nnoremap <C-n> :Fern %:h -drawer -toggle<cr>
 
 let g:fern#renderer = "nerdfont"
 let g:fern#disable_viewer_smart_cursor = 1
