@@ -14,7 +14,7 @@ set scrolloff=10
 set sidescrolloff=5
 set sidescroll=1
 set nohlsearch
-set nowrap
+" set nowrap
 set smartcase
 set noswapfile
 set nobackup
@@ -141,6 +141,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'junegunn/goyo.vim'
 " Plugin 'akinsho/bufferline.nvim'
+Plugin 'APZelos/blamer.nvim'
 
 call vundle#end()
 
@@ -230,8 +231,8 @@ nnoremap <Leader>l
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -440,7 +441,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
@@ -854,7 +855,8 @@ let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
 let g:NERDTreeHijackNetrw=0
 
-nnoremap <C-n> :Fern . -drawer -toggle<cr>
+nmap <C-n> <Cmd>CocCommand explorer<CR>
+" nnoremap <C-n> :Fern . -drawer -toggle<cr>
 " nnoremap <C-n> :Fern %:h -drawer -toggle<cr>
 
 let g:fern#renderer = "nerdfont"
@@ -889,6 +891,7 @@ augroup my-glyph-palette
   autocmd FileType fern call glyph_palette#apply()
   autocmd FileType fern call s:init_fern()
   autocmd FileType nerdtree,startify call glyph_palette#apply()
+  autocmd FileType coc-explorer call glyph_palette#apply()
 augroup END
 
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
@@ -935,3 +938,63 @@ fun! TrimWhitespace()
 endfun
 
 xmap <leader>x  <Plug>(coc-convert-snippet)
+
+let g:blamer_enabled = 0
+let g:blamer_delay = 500
+let g:blamer_show_in_visual_modes = 0
+let g:blamer_show_in_insert_modes = 0
+let g:blamer_prefix = ' > '
+
+
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'tab:$': {
+\     'position': 'tab:$',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+
+" Use preset argument to open it
+nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
+nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
+nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+
+" List all presets
+nmap <space>el <Cmd>CocList explPresets<CR>
