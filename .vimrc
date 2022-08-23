@@ -14,7 +14,7 @@ set scrolloff=10
 set sidescrolloff=5
 set sidescroll=1
 set nohlsearch
-" set nowrap
+set nowrap
 set smartcase
 set noswapfile
 set nobackup
@@ -525,6 +525,7 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [
             \ { 'v': '~/.vimrc' },
+            \ { 'n': '~/.config/nvim/init.lua' },
             \ { 'b': '~/.bashrc' },
             \ { 't': '~/.config/qtile/config.py' },
             \ { 'a': '~/.alacritty.yml' },
