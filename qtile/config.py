@@ -282,7 +282,7 @@ dgroups_key_binder = simple_key_binder(mod)
 colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.kanagawa()
 
 layout_theme = {
-    "border_width": 3,  # 5
+    "border_width": 5,  # 5
     "margin": 3,  # 7
     "border_focus": "215578",
     "border_normal": "0f111b",
@@ -432,9 +432,9 @@ def init_widgets_list(main_screen):
         ),
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),
         widget.TextBox(
-            text="",
+            text=" ",
             foreground=colors[6],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.Backlight(
             foreground=colors[6],
@@ -447,16 +447,17 @@ def init_widgets_list(main_screen):
         widget.TextBox(
             text="墳",
             foreground=colors[8],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.Volume(fmt="{}", foreground=colors[8], padding=5),
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),
-        widget.CurrentLayoutIcon(scale=0.7),
+        # widget.CurrentLayoutIcon(scale=0.7),
+        widget.CurrentLayoutIcon(scale=0.5),
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),
         widget.TextBox(
             text="",
             foreground=colors[4],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.Memory(
             foreground=colors[4],
@@ -470,7 +471,7 @@ def init_widgets_list(main_screen):
         widget.TextBox(
             text="",
             foreground=colors[10],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.CPU(
             format="{freq_current}GHz {load_percent}%",
@@ -484,7 +485,7 @@ def init_widgets_list(main_screen):
         widget.TextBox(
             text="",
             foreground=colors[9],
-            fontsize=15,
+            # fontsize=15,
         ),
         widget.ThermalSensor(
             foreground=colors[9],
@@ -495,9 +496,9 @@ def init_widgets_list(main_screen):
         ),
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),
         widget.TextBox(
-            text="",
+            text=" ",
             foreground=colors[7],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.Wlan(
             foreground=colors[7],
@@ -510,9 +511,9 @@ def init_widgets_list(main_screen):
         tray,
         widget.Sep(linewidth=2, padding=5, foreground=foregroundColor),
         widget.TextBox(
-            text="",
+            text=" ",
             foreground=colors[2],
-            fontsize=23,
+            # fontsize=23,
         ),
         widget.Clock(
             format="%a %d %m %Y |  %I:%M %p",
@@ -576,7 +577,7 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
-# dgroups_key_binder = None
+dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False

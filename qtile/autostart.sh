@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xset r rate 200 60 &
-# picom &
+picom &
 flameshot &
 # start-pulseaudio-x11 &
 # pipewire &
@@ -9,5 +9,6 @@ flameshot &
 # wireplumber &
 nm-applet &
 copyq &
-setxkbmap -layout br,us
-setxkbmap -option 'grp:alt_shift_toggle'
+fcitx5 &
+# setxkbmap -layout br,us
+# setxkbmap -option 'grp:alt_shift_toggle'
