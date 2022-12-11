@@ -199,34 +199,34 @@ keys = [
 ]
 
 workspaces = [
-    {"name": "", "key": "1", "matches": []},
+    {"name": "一", "key": "1", "matches": []},
     {
-        "name": "",
+        "name": "二",
         "key": "2",
         "matches": [],
     },
     {
-        "name": "",
+        "name": "三",
         "key": "3",
         "matches": [
             Match(wm_class="joplin"),
         ],
     },
-    {"name": "", "key": "4", "matches": []},
-    {"name": "", "key": "5", "matches": []},
+    {"name": "四", "key": "4", "matches": []},
+    {"name": "五", "key": "5", "matches": []},
     {
-        "name": "",
+        "name": "六",
         "key": "6",
         "matches": [
             Match(wm_class="lightcord"),
             Match(wm_class="polari"),
         ],
     },
-    {"name": "", "key": "7", "matches": []},
-    {"name": "", "key": "8", "matches": []},
-    {"name": "", "key": "9", "matches": []},
+    {"name": "七", "key": "7", "matches": []},
+    {"name": "八", "key": "8", "matches": []},
+    {"name": "九", "key": "9", "matches": []},
     {
-        "name": "",
+        "name": "十",
         "key": "0",
         "matches": [
             Match(wm_class="lxappearance"),
@@ -286,7 +286,7 @@ layout_theme = {
     "margin": 3,  # 7
     "border_focus": "215578",
     "border_normal": "0f111b",
-    "font": "CartographCF",
+    "font": "FiraCode Nerd Font",
     "grow_amount": 2,
 }
 
@@ -379,26 +379,26 @@ def init_widgets_list(main_screen):
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),
         widget.GroupBox(
             font="CartographCF",
-            fontsize=20,
-            visible_groups=[""],
+            fontsize=15,
+            visible_groups=["一"],
             **group_box_settings,
         ),
         widget.GroupBox(
             font="CartographCF",
-            fontsize=20,
-            visible_groups=["", "", "", "", ""],
+            fontsize=15,
+            visible_groups=["二", "三", "四", "五", "六"],
             **group_box_settings,
         ),
         widget.GroupBox(
             font="CartographCF",
-            fontsize=20,
-            visible_groups=[""],
+            fontsize=15,
+            visible_groups=["七"],
             **group_box_settings,
         ),
         widget.GroupBox(
             font="CartographCF",
-            fontsize=20,
-            visible_groups=["", "", ""],
+            fontsize=15,
+            visible_groups=["八", "九", "十"],
             **group_box_settings,
         ),
         widget.Sep(linewidth=2, padding=5, foreground=colors[2]),

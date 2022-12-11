@@ -115,7 +115,8 @@ font:
     # family: Hack Nerd Font Mono
     # family: Hack Nerd Font Mono
     # family: Droid Sans Mono Nerd Font
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
+    # family: Hack
     # family: CartographCF
     # family: MesloLGSDZ Nerd Font
     # family: JetBrains Mono
@@ -138,7 +139,10 @@ font:
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: Hack Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
+    # family: Hack
+    # family: CartographCF
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Semibold
@@ -165,7 +169,10 @@ font:
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: Hack Nerd Font Mono
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
+    # family: Hack
+    # family: FiraMono
+    # family: CartographCF
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Italic
@@ -193,7 +200,10 @@ font:
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: Hack Nerd Font Mono
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
+    # family: Hack
+    # family: CartographCF
     # family: Fira Code SemiBold Nerd Font Complete
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Bold Italic
@@ -210,7 +220,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
