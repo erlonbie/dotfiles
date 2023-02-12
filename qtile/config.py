@@ -553,6 +553,13 @@ def init_screens():
                 widgets=init_widgets_screen("not_main_screen"), opacity=1.0, size=25
             ),
         ),
+        Screen(
+            wallpaper="/home/erlonbie/Downloads/kana_wall.jpg",
+            wallpaper_mode="fill",
+            top=bar.Bar(
+                widgets=init_widgets_screen("not_main_screen"), opacity=1.0, size=25
+            ),
+        ),
     ]
 
 
