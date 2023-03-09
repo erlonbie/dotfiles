@@ -1,7 +1,7 @@
 * {
 	border: none;
 	border-radius: 10;
-    font-family: "Fira Code Nerd Font Mono" ;
+    font-family: "FantasqueSansMono Nerd Font Mono" ;
 	font-size: 13px;
 	min-height: 10px;
   color: #C0AC8C;
@@ -19,6 +19,15 @@ window#waybar.hidden {
   margin: 0em;
   font-weight: bold;
     color: #BD93F9;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #2F4052;
 }
 
 #workspaces button { 
@@ -36,22 +45,27 @@ window#waybar.hidden {
 #workspaces button:hover {
   /* cursor: pointer; */
   background: rgba(0, 0, 0, 0.2);
-  /* box-shadow: inset 0 -3px #ffffff; */
+  box-shadow: inset 0 -1px #abbba2;
   color: #bf616a;
 }
 
 #workspaces button.focused {
-  /* background-color: #64727d; */
+  background-color: #64727d;
   color: #bf616a;
-  /* box-shadow: inset 0 -3px #ffffff; */
+  background: rgba(1, 0.5, 0, 0.2);
+  box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.active {
-  color: #c68a75;
+	border-radius: 5px;
+  /* color: #c68a75; */
+  background: rgba(0.4, 0.3, 0.5, 0.2);
+  background-color: #66667d;
+  box-shadow: inset 0 -1px transparent;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: #eb4d3b;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -64,21 +78,68 @@ window#waybar.hidden {
   margin-right: 0;
 }
 
-#custom\/spotify {
+#custom-spotify {
   font-weight: bold;
-  margin-top: 40px;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #abbba2;
+}
+
+#taskbar {
+  font-weight: bold;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #221f29;
+}
+
+#taskbar button:hover {
+  /* cursor: pointer; */
+  /* background: rgba(0, 0, 0, 0.2); */
+  box-shadow: inset 0 -1px #abbba2;
+  color: #bf616a;
+}
+
+#taskbar button.focused {
+  background-color: #64727d;
+  color: #bf616a;
+  background: rgba(1, 0.5, 0, 0.2);
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#taskbar button.active {
+  /* color: #c68a75; */
+  background: rgba(0.4, 0.3, 0.5, 0.2);
+  background-color: #66667d;
+  box-shadow: inset 0 -1px transparent;
+}
+
+#taskbar button.urgent {
+  background-color: #eb4d3b;
 }
 
 #window {
+  font-weight: bold;
 	margin-top: 6px;
+	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
+	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-    color: #BD93F9;
-  margin: 0em;
-  font-weight: bold;
-	background: transparent;
+	color: #111111;
+	background: #ccbba2;
 }
 #tags {
 	margin-top: 6px;

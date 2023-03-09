@@ -999,3 +999,4 @@ nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 
 " List all presets
 nmap <space>el <Cmd>CocList explPresets<CR>
+" let g:fern_disable_startup_warnings = 1

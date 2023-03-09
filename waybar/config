@@ -47,10 +47,10 @@
         "format": "{icon}",
         "icon-theme": "Gruvbox-Material-Dark",
         "icon-size": 14,
-        "active-first": true,
+        //"active-first": true,
         "on-click": "activate",
-        "on-middle-click": "close",
-        "on-right-click": "minimize"
+        //"on-middle-click": "close",
+        //"on-right-click": "minimize"
     },
     "keyboard-state": {
         "numlock": true,
@@ -153,7 +153,7 @@
         "format": " <span color='#bf616a'> </span>",
         // "format": " <span color='#bf616a'> 異</span>",
         // "format": " <span color='#bf616a'> </span>",
-        "on-click": "rofi -show combi -font 'CartographCF 12'",
+        "on-click": "rofi -show combi -theme ~/.config/rofi/launchers/type-5/style-4.rasi",
     },
     "custom/spotify": {
         "exec": "$HOME/.config/waybar/scripts/spotify.sh",
@@ -162,7 +162,7 @@
         "format": " {}",
         "on-click": "playerctl play-pause",
         "on-double-click": "playerctl next",
-        "on-right-click": "on-click-right"
+        //"on-right-click": "on-click-right"
     },
 }
 
