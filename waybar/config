@@ -5,7 +5,7 @@
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "wlr/workspaces", "wlr/taskbar","hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["tray",  "pulseaudio", "network", "backlight", "battery", "battery#bat2", "cpu", "memory", "clock"],
+    "modules-right": ["tray",  "pulseaudio", "network", "backlight", "battery", "battery#bat2", "cpu", "memory", "clock", "custom/notification"],
     "wlr/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -153,17 +153,37 @@
         "format": " <span color='#bf616a'> </span>",
         // "format": " <span color='#bf616a'> 異</span>",
         // "format": " <span color='#bf616a'> </span>",
-        "on-click": "rofi -show combi -theme ~/.config/rofi/launchers/type-5/style-4.rasi",
+        //"on-click": "rofi -show combi -theme ~/.config/rofi/launchers/type-5/style-4.rasi",
     },
     "custom/spotify": {
         "exec": "$HOME/.config/waybar/scripts/spotify.sh",
-        // "return-type": "json",
+        //"return-type": "json",
         "max-length": 40,
         "format": " {}",
         "on-click": "playerctl play-pause",
         "on-double-click": "playerctl next",
         //"on-right-click": "on-click-right"
     },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon} {}",
+        "format-icons": {
+          "notification": "",
+          "none": "",
+          "dnd-notification": "",
+          "dnd-none": "",
+          "inhibited-notification": "",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "",
+          "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        //"on-click-right": "swaync-client -d -sw",
+        "escape": true
+      },
 }
 
 /* { */

@@ -72,13 +72,24 @@
 while true; do
 
 	player_status=$(playerctl status 2>/dev/null)
-
-	if [ -z "$(playerctl metadata album)" ]; then
+	spotify_status=$(playerctl --player=spotify status 2>/dev/null)
+	spotify=$(playerctl --list-all | grep spotify)
+	#
+  if [ "$spotify" = "spotify" ] ; then
+		if [ "$spotify_status" = "Playing" ]; then
+			echo "<span color='#1db954'></span> $(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
+		elif [ "$spotify_status" = "Paused" ]; then
+			echo "<span color='#1db954'></span>  $(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
+		else
+			echo ""
+		fi
+		# echo "$(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
+	elif [ -z "$(playerctl metadata album)" ]; then
 		if [ "$player_status" = "Playing" ]; then
 			echo "$(playerctl metadata artist) - $(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
 			echo " $(playerctl metadata artist) - $(playerctl metadata title)"
-    else
+		else
 			echo ""
 		fi
 	else
@@ -86,7 +97,7 @@ while true; do
 			echo "<span color='#1db954'></span> $(playerctl metadata artist) - $(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
 			echo "<span color='#1db954'></span>  $(playerctl metadata artist) - $(playerctl metadata title)"
-    else
+		else
 			echo ""
 		fi
 	fi
