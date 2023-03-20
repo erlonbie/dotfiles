@@ -74,21 +74,31 @@ while true; do
 	player_status=$(playerctl status 2>/dev/null)
 	spotify_status=$(playerctl --player=spotify status 2>/dev/null)
 	spotify=$(playerctl --list-all | grep spotify)
+  ncspot_status=$(playerctl --player=ncspot status 2>/dev/null)
+	ncspot=$(playerctl --list-all | grep ncspot)
 	#
   if [ "$spotify" = "spotify" ] ; then
 		if [ "$spotify_status" = "Playing" ]; then
 			echo "<span color='#1db954'></span> $(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
 		elif [ "$spotify_status" = "Paused" ]; then
-			echo "<span color='#1db954'></span>  $(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
+			echo "<span color='grey'></span>  $(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
 		else
 			echo ""
 		fi
-		# echo "$(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
+  elif [ "$ncspot" = "ncspot" ] ; then
+		if [ "$ncspot_status" = "Playing" ]; then
+			echo "<span color='#1db954'></span> $(playerctl --player=ncspot metadata artist) - $(playerctl --player=ncspot metadata title)"
+		elif [ "$ncspot_status" = "Paused" ]; then
+			echo "<span color='grey'></span>  $(playerctl --player=ncspot metadata artist) - $(playerctl --player=ncspot metadata title)"
+		else
+			echo ""
+		fi
+		#  echo "$(playerctl --player=spotify metadata artist) - $(playerctl --player=spotify metadata title)"
 	elif [ -z "$(playerctl metadata album)" ]; then
 		if [ "$player_status" = "Playing" ]; then
-			echo "$(playerctl metadata artist) - $(playerctl metadata title)"
+			echo "<span color='red'></span> $(playerctl metadata artist) - $(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
-			echo " $(playerctl metadata artist) - $(playerctl metadata title)"
+			echo "<span color='grey'></span>  $(playerctl metadata artist) - $(playerctl metadata title)"
 		else
 			echo ""
 		fi
@@ -96,7 +106,7 @@ while true; do
 		if [ "$player_status" = "Playing" ]; then
 			echo "<span color='#1db954'></span> $(playerctl metadata artist) - $(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
-			echo "<span color='#1db954'></span>  $(playerctl metadata artist) - $(playerctl metadata title)"
+			echo "<span color='grey'></span>  $(playerctl metadata artist) - $(playerctl metadata title)"
 		else
 			echo ""
 		fi
