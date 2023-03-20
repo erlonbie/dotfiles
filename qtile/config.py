@@ -16,11 +16,11 @@ from custom.bsp import Bsp as CustomBsp
 
 import colors
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 mod = "mod4"
 alt = "mod1"
 browser = "google-chrome-beta"
-terminal = guess_terminal()
+terminal = 'kitty'
 flameshot_full_screen = "flameshot screen -c"
 flameshot_gui = "flameshot gui"
 flameshot_save_path = "flameshot screen -p /home/erlonbie/Pictures/"
@@ -245,7 +245,7 @@ groups = [
             # it is placed in the upper third of screen by default.
             DropDown(
                 "term",
-                "alacritty --class dropdown -e tmux_startup.sh",
+                "kitty --class dropdown -e tmux_startup.sh",
                 height=0.6,
                 on_focus_lost_hide=False,
                 opacity=1,
@@ -358,7 +358,7 @@ extension_defaults = widget_defaults.copy()
 
 
 def open_calendar():
-    qtile.cmd_spawn("alacritty -e calcurse")
+    qtile.cmd_spawn("kitty -e calcurse")
 
 
 def open_jgmenu():
