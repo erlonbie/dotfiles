@@ -72,7 +72,7 @@ keys = [
     Key(
         [mod],
         "Tab",
-        lazy.spawn("rofi -show window"),
+        lazy.spawn("rofi -show window -theme ~/.config/rofi/launchers/type-5/style-4.rasi"),
         desc="Use next layout on the actual group",
     ),
     Key(
@@ -173,7 +173,7 @@ keys = [
     Key(
         [mod],
         "d",
-        lazy.spawn("rofi -show combi -font 'CartographCF 12'"),
+        lazy.spawn("rofi -show combi -theme ~/.config/rofi/launchers/type-5/style-4.rasi"),
         desc="launcher-apps ",
     ),
     Key(
