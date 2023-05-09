@@ -67,6 +67,7 @@ window#waybar.hidden {
 
 #workspaces button.urgent {
   background-color: #eb4d3b;
+	border-radius: 10px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
