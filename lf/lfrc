@@ -1,2 +1,102 @@
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+# set previewer ~/.config/lf/lf_kitty_preview
+# set cleaner ~/.config/lf/lf_kitty_clean
+
+set previewer ctpv
+set cleaner ctpvclear
+set icons true
+set period 1
+# set number
+set hidden!
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set incsearch
+set incfilter
+set promptfmt "
+\033[48;2;35;38;39;38;2;28;220;156m  
+\033[38;2;35;38;39;48;2;202;31;31m
+\033[38;2;202;31;31;48;2;40;47;62m
+\033[38;2;255;255;255m %w 
+\033[38;2;40;47;62;48;2;58;67;89m
+\033[38;2;255;255;255m %f 
+\033[;38;2;58;67;89;49m\033[m"
+
+set ratios 2:3 # 2:3:7:7
+set truncatechar "…"
+set waitmsg "\033[1;31m⏎\033[m"
+set timefmt "02/01/2006 15:04:05 "
+set infotimefmtnew '02/01 15:04'
+set infotimefmtold '02/01/06'
+set errorfmt "\033[1;31m"
+set numberfmt "\033[38;2;75;87;116m"
+set dircounts
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set shellopts '-eu'
+set ifs "\n"
+set ruler 'df:acc:progress:selection:filter:ind'
+set cursorpreviewfmt "\033[7m"
+# set scrolloff 10
+
+# cmd trash %trash-put $fx
+
+# Custom Functions
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+# Trash bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+map <enter> shell
+map d
+map m
+
+map dd trash
+map dr restore_trash
+map D delete
+map p paste
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map au unarchive
+
+&ctpv -s $id
+&ctpvquit $id
