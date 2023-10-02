@@ -82,6 +82,13 @@ cmd unarchive ${{
   esac
 }}
 
+cmd open ${{
+    case $(file --mime-type -Lb $f) in
+        text/*) nvim $fx;;
+        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
 map <enter> shell
 map d
 map m
