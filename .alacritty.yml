@@ -117,7 +117,8 @@ font:
     # family: Hack Nerd Font Mono
     # family: Droid Sans Mono Nerd Font
     # family: FiraCode Nerd Font Mono
-    family: FantasqueSansMono Nerd Font Mono 
+    # family: FantasqueSansMono Nerd Font Mono 
+    family: Monolisa Nerd Font Mono 
     # family: ComicMono Nerd Font 
     # family: Hack
     # family: CartographCF
@@ -144,7 +145,8 @@ font:
     # family: Hack Nerd Font Mono
     # family: FiraCode Nerd Font
     # family: FiraCode Nerd Font Mono
-    family: FantasqueSansMono Nerd Font Mono 
+    # family: FantasqueSansMono Nerd Font Mono 
+    family: Monolisa Nerd Font Mono 
     # family: ComicMono Nerd Font 
     # family: Hack
     # family: CartographCF
@@ -175,7 +177,8 @@ font:
     # family: Hack
     # family: Hack Nerd Font Mono
     # family: FiraCode Nerd Font Mono
-    family: FantasqueSansMono Nerd Font Mono 
+    # family: FantasqueSansMono Nerd Font Mono 
+    family: Monolisa Nerd Font Mono 
     # family: ComicMono Nerd Font 
     # family: Hack
     # family: FiraMono
@@ -209,7 +212,8 @@ font:
     # family: Hack Nerd Font Mono
     # family: FiraCode Nerd Font
     # family: FiraCode Nerd Font Mono
-    family: FantasqueSansMono Nerd Font Mono 
+    # family: FantasqueSansMono Nerd Font Mono 
+    family: Monolisa Nerd Font Mono 
     # family: ComicMono Nerd Font 
     # family: Hack
     # family: CartographCF

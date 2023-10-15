@@ -12,7 +12,7 @@ from libqtile.utils import guess_terminal
 from libqtile.widget import Spacer, Backlight
 from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
-from custom.bsp import Bsp as CustomBsp
+# from custom.bsp import Bsp as CustomBsp
 
 import colors
 
@@ -291,7 +291,8 @@ layout_theme = {
 }
 
 layouts = [
-    CustomBsp(**layout_theme, fair=False),
+    # CustomBsp(**layout_theme, fair=False),
+    layout.Bsp(**layout_theme),
     layout.MonadWide(**layout_theme),
     layout.Columns(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),

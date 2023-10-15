@@ -7,6 +7,7 @@ flameshot &
 # pipewire &
 # pipewire-pulse &
 # wireplumber &
+dunst &
 nm-applet &
 copyq &
 fcitx5 &
