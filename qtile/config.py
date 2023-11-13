@@ -62,7 +62,7 @@ keys = [
         desc="toggle window between minimum and maximum sizes",
     ),
     # Key([mod], "v", lazy.spawn("alacritty -e ranger"), desc='Use next layout on the actual group'),
-    Key([mod], "v", lazy.spawn("neovide"), desc="Use next layout on the actual group"),
+    Key([mod], "v", lazy.spawn("neovide --multigrid --neovim-bin /home/erlonbie/.local/share/bob/nvim-bin/nvim"), desc="Use next layout on the actual group"),
     Key(
         [mod],
         "semicolon",
@@ -609,6 +609,17 @@ reconfigure_screens = True
 
 # Programms to start on log in
 
+
+@hook.subscribe.client_new
+def new_client(window):
+    if window.name == "ArchLinux Logout":
+        qtile.hide_show_bar()
+
+
+@hook.subscribe.client_killed
+def logout_killed(window):
+    if window.name == "ArchLinux Logout":
+        qtile.hide_show_bar()
 
 @hook.subscribe.startup_once
 def autostart():
