@@ -1,8 +1,10 @@
 * {
 	border: none;
 	border-radius: 10;
-  font-family: "FantasqueSansMono Nerd Font Mono" ;
-  /* font-family: "Fira Nerd Font Mono" ; */
+  /* font-family: "FantasqueSansMono Nerd Font Mono" ; */
+  /* font-family: "Monolisa Nerd Font Mono" ; */
+  font-family: "Firacode Nerd Font Mono" ;
+  /* font-family: "ComicMono Nerd Font" ; */
 	font-size: 13px;
 	min-height: 10px;
   color: #C0AC8C;
