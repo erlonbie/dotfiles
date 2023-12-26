@@ -45,15 +45,20 @@
     "shadow": true
   },
   "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
+    //   "ccls": {
+    //     "command": "ccls",
+    //     "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+    //     "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+    //     "initializationOptions": {
+    //       "cache": {
+    //         "directory": "/tmp/ccls"
+    //       }
+    //     }
+    //   },
+   "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     },
     "prolog-lsp": {
       "command": "swipl",
@@ -70,20 +75,19 @@
       "filetypes": ["prolog"]
     }
   },
-
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "javascript",
-    "graphql",
-    "html",
-    "yaml",
-    "json",
-    "python",
-    "java",
-    "typescript",
-    "prisma"
-  ],
+  //  "coc.preferences.formatOnSaveFiletypes": [
+  //    "css",
+  //    "markdown",
+  //    "javascript",
+  //    "graphql",
+  //    "html",
+  //    "yaml",
+  //    "json",
+  //    "python",
+  //    "java",
+  //    "typescript",
+  //    "prisma"
+  //  ],
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
