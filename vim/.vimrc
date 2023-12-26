@@ -1,4 +1,4 @@
-filetype plugin on
+filetype plugin indent on
 syntax on
 filetype on
 
@@ -21,7 +21,7 @@ set nobackup
 set undodir=~/.vim/undoir
 set undofile
 set incsearch
-set hlsearch
+"set hlsearch
 set mouse=a
 set lazyredraw
 set clipboard=unnamedplus
@@ -29,24 +29,14 @@ set wildmenu
 " set wildmode=full,full
 set wildoptions=pum
 set ttyfast
-"packadd gruvbox-material
 let g:gruvbox_italic=1
 set termguicolors
-"let g:gruvbox_termcolors=16
 packloadall
 set rnu
 set background=dark
-" let g:lightline = { 'colorscheme': 'palenight' }
-" Italics for my favorite color scheme
-" let g:palenight_terminal_italics=1
-" let g:palenight_color_overrides = {
-" \    'black': { 'gui': '#000000',
-"cterm":
-"0",
-"cterm16":
-"0" },
-" \}
+let g:mapleader=" "
 set nocompatible
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -57,7 +47,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-utils/vim-man'
 Plugin 'lyuts/vim-rtags'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -67,7 +56,6 @@ Plugin 'junegunn/fzf', { 'dir': '~/opt/fzf' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'mhinz/vim-grepper'
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plugin 'alvan/vim-closetag'
 Plugin 'preservim/nerdtree'
@@ -76,25 +64,21 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'mhinz/vim-startify'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'luochen1990/rainbow'
-"Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'unblevable/quick-scope'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'liuchengxu/vim-which-key'
-"Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'uiiaoo/java-syntax.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'mlaursen/vim-react-snippets'
 Plugin 'mileszs/ack.vim'
-" or Plug 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'pantharshit00/vim-prisma'
 Plugin 'dkarter/bullets.vim'
@@ -103,60 +87,43 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/csv.vim'
-" Plugin 'chrisbra/Colorizer'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'tribela/vim-transparent'
-" Plugin 'jupyter-vim/jupyter-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'preservim/tagbar'
 Plugin 'puremourning/vimspector'
 Plugin 'sainnhe/everforest'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'wesQ3/vim-windowswap'
-
-" Plugin 'LucHermitte/lh-vim-lib'
-" Plugin 'LucHermitte/lh-tags'
-" Plugin 'LucHermitte/lh-dev'
-" Plugin 'LucHermitte/lh-style'
-" Plugin 'LucHermitte/lh-brackets'
-" Plugin 'LucHermitte/vim-refactor'
-
-" " For experimental function extraction
-" Plugin 'LucHermitte/mu-template'
-" Plugin 'tomtom/stakeholders_vim'
 Plugin 'fatih/vim-go'
 Plugin 'Jorengarenar/vim-syntaxMarkerFold'
-
 Plugin 'lambdalisue/fern.vim'
 Plugin 'lambdalisue/fern-git-status.vim'
 Plugin 'lambdalisue/glyph-palette.vim'
 Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
 Plugin 'lambdalisue/nerdfont.vim'
 Plugin 'lambdalisue/fern-hijack.vim'
-
 Plugin 'easymotion/vim-easymotion'
 Plugin 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'junegunn/goyo.vim'
-" Plugin 'akinsho/bufferline.nvim'
 Plugin 'APZelos/blamer.nvim'
+Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
+Plugin 'rust-lang/rust.vim',
+" Plugin 'bling/vim-bufferline'
 
 call vundle#end()
 
-colorscheme gruvbox-material
+colorscheme catppuccin_mocha
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey20
 
 filetype plugin on
 
+
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
-" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview='bat --color=always --style=header,grid --line-range :100 {}'"
-" let $FZF_DEFAULT_OPTS='--ansi --preview-window right:60% --preview "bat --color=always --style=header,grid {}'
-" let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 let $FZF_DEFAULT_OPTS= '--bind ctrl-a:select-all'
-" let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -165,11 +132,11 @@ nnoremap <A-Up> :m .-2<CR>==
 vnoremap <A-Down> :m '>+1<CR>gv=gv
 vnoremap <A-Up> :m '<-2<CR>gv=gv
 
-let g:minimap_show='<leader>ms'
-let g:minimap_update='<leader>mu'
-let g:minimap_close='<leader>gc'
-let g:minimap_toggle='<leader>gt'
-let g:minimap_highlight='Visual'
+" Shortcuts for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 syn match parens /[(){}]/
 
@@ -232,16 +199,32 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#tabs_label = ''
 let g:airline_powerline_fonts = 1
+let g:airline_experimental = 1
+let g:airline_detect_spelllang=1
+let g:airline_section_c_only_filename = 0
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = ''
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#error_symbol = ' '
+  let airline#extensions#coc#stl_format_err = '%C'
+let g:airline#extensions#coc#warning_symbol = ' '
+  let airline#extensions#coc#stl_format_warn = '%C'
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
 
+    " let g:airline_left_sep=''
+    " let g:airline_right_sep=''
+    " let g:airline_section_z=''
     " unicode symbols
     let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
     let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
+    " let g:airline_left_sep = '▶'
+    " let g:airline_right_sep = '◀'
     let g:airline_symbols.crypt = '🔒'
     let g:airline_symbols.linenr = '☰'
     let g:airline_symbols.linenr = '␊'
@@ -261,7 +244,7 @@ let g:airline_powerline_fonts = 1
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
+    let g:airline_right_alt_sep = ' |'
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ' ☰  '
@@ -435,7 +418,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -580,7 +564,7 @@ nnoremap <leader>b :call <SID>ToggleBlame()<CR>
 
 "Float term
 
-let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_toggle = '<leader>tf'
 let g:floaterm_keymap_next   = '<F2>'
 let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
@@ -599,7 +583,7 @@ highlight link javaDelimiter NONE
 vnoremap > >gv
 vnoremap < <gv
 
-map <C-k> <plug>Commentary
+map <C-c> <plug>Commentary
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -646,9 +630,9 @@ let g:bullets_enabled_file_types = [
 " map <C-h> :call TabMove(-1)<CR>
 " map <C-l> :call TabMove(1)<CR>
 
-nmap <C-l> zfi{
-nmap <C-h> :set foldmethod=indent<CR>
-nmap <C-c> :set foldmethod=manual<CR>
+" nmap <C-l> zfi{
+" nmap <C-h> :set foldmethod=indent<CR>
+" nmap <C-c> :set foldmethod=manual<CR>
 " nmap <C-e> :e<CR>
 
 let g:LanguageClient_serverCommands = {
@@ -730,12 +714,17 @@ let g:coc_global_extensions = [
       \'coc-swagger',
       \'coc-sql',
       \'coc-pyright',
+      \'@yaegassy/coc-black-formatter',
       \'coc-prisma',
       \'coc-omnisharp',
       \'coc-json',
       \'coc-java',
       \'coc-flutter',
+      \'coc-clangd',
+      \'coc-phpactor',
+      \'coc-rust-analyzer',
       \'@frogsquare/coc-dart-analyze',
+      \'coc-go',
       \]
 
 " copy (write) highlighted text to .vimbuffer
@@ -842,10 +831,29 @@ nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
-nmap <C-f> :Files<CR>
-nmap <C-b> :Ag<CR>
+" nmap <C-f> :Files<CR>
+" nmap <C-b> :Ag<CR>
+" nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+" nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+" inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 
-let g:go_def_mapping_enabled=0
+" let g:go_def_mapping_enabled=0
+let g:go_highlight_extra_types = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_gotags_bin = 'gotags'
+let g:go_highlight_space_tab_error = 1
+let g:go_fmt_command = 'goimports'
+let g:go_jump_to_error = 1
+let g:go_loaded_gosnippets = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_doc_popup_window = 1
+let g:go_jump_to_error = 1
+let g:go_loaded_gosnippets = 1
+let g:go_loaded_install = 1
 
 autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 
@@ -858,7 +866,7 @@ let g:NERDTreeHijackNetrw=0
 
 nmap <C-n> <Cmd>CocCommand explorer<CR>
 " nnoremap <C-n> :Fern . -drawer -toggle<cr>
-" nnoremap <C-n> :Fern %:h -drawer -toggle<cr>
+nnoremap <Leader>fe :Fern %:h -drawer -toggle<cr>
 
 let g:fern#renderer = "nerdfont"
 let g:fern#disable_viewer_smart_cursor = 1
@@ -923,14 +931,14 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
-let g:multi_cursor_start_word_key      = '<C-o>'
-let g:multi_cursor_select_all_word_key = '<C-e>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<C-e>'
-let g:multi_cursor_next_key            = '<C-o>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-X>'
-let g:multi_cursor_quit_key            = '<Esc>'
+" let g:multi_cursor_start_word_key      = '<C-o>'
+" let g:multi_cursor_select_all_word_key = '<C-e>'
+" let g:multi_cursor_start_key           = 'g<C-n>'
+" let g:multi_cursor_select_all_key      = 'g<C-e>'
+" let g:multi_cursor_next_key            = '<C-o>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-X>'
+" let g:multi_cursor_quit_key            = '<Esc>'
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -1000,3 +1008,4 @@ nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 " List all presets
 nmap <space>el <Cmd>CocList explPresets<CR>
 " let g:fern_disable_startup_warnings = 1
+nmap <leader>tt :TagbarToggle<CR>
