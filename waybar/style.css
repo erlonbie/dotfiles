@@ -144,6 +144,7 @@ window#waybar.hidden {
 	transition: none;
 	color: #111111;
 	background: #ccbba2;
+  background-color: transparent;
 }
 #tags {
 	margin-top: 6px;

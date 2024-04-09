@@ -84,10 +84,18 @@ cmd unarchive ${{
 
 cmd open ${{
     case $(file --mime-type -Lb $f) in
-        text/*) nvim $fx;;
+        text/* | application/json) nvim $fx;;
+        application/vnd.sqlite3) litecli $fx;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
+# case $(file --mime-type -Lb $f) in
+#     text/* | application/json) nvim $fx;;
+#     image/*) display $fx;;
+#     video/*) mpv $fx;;
+#     *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+# esac
 
 map <enter> shell
 map d
