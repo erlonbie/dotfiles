@@ -406,6 +406,8 @@ endif
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
+command! -nargs=0 LazyGit :call (FloatermNew --width=0.9 --height=0.9 lazygit)
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
