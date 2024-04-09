@@ -30,8 +30,8 @@ bold_italic_font auto
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-# font_size 12.0
-font_size 15.0
+# font_size 14.0
+font_size 18.0
 
 #: Font size (in pts)
 
@@ -486,11 +486,11 @@ placement_strategy center
 #: this option. Using a value of center means the cell area will be
 #: placed centrally. A value of top-left means the padding will be on
 #: only the bottom and right edges.
-# active_border_color #D4CE62 
+active_border_color #D4CE62 
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
-# inactive_border_color #D4CE62
+inactive_border_color #D4CE62
 
 #: The color for the border of inactive windows
 # bell_border_color #ff5a00
@@ -1390,6 +1390,6 @@ map kitty_mod+l combine : clear_terminal scroll active : send_text normal,applic
 
 
 # BEGIN_KITTY_THEME
-# kanagawabones
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
