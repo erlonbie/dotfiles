@@ -457,6 +457,8 @@ unbind -T copy-mode-vi MouseDragEnd1Pane
 # Save and Restore session
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
+# set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-processes '~nvim'
 
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
