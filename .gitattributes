@@ -1,0 +1,6 @@
+.zshrc filter=dotsecret
+.zshenv filter=dotsecret
+.zprofile filter=dotsecret
+*.secrets.env filter=dotsecret
+*.*.env filter=dotsecret
+*.env filter=dotsecret
