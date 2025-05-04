@@ -1,0 +1,13 @@
+aerospace
+android-platform-tools
+beekeeper-studio
+betterdisplay
+docker
+font-fira-code-nerd-font
+font-fira-mono-nerd-font
+font-hack-nerd-font
+ghostty
+qmk-toolbox
+teamviewer
+via
+wezterm
