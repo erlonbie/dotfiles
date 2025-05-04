@@ -1,0 +1,130 @@
+return {
+	-- "nvim-lua/popup.nvim",
+	-- "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
+	-- "akinsho/bufferline.nvim",
+	-- "moll/vim-bbye",
+	-- "akinsho/toggleterm.nvim",
+	-- "ahmedkhalf/project.nvim",
+	-- "lewis6991/impatient.nvim",
+	-- "NvChad/nvim-colorizer.lua",
+	-- "kevinhwang91/nvim-bqf",
+	-- "ThePrimeagen/harpoon",
+	-- "MattesGroeger/vim-bookmarks",
+	-- { "michaelb/sniprun",     build = "bash ./install.sh" },
+	-- {
+	--
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	build = "cd app && npm install",
+	-- 	ft = "markdown",
+	-- },
+	-- -- Session
+	-- { "rmagatti/session-lens" },
+	-- -- UI
+	-- "goolord/alpha-nvim",
+	-- "folke/which-key.nvim",
+	-- "is0n/jaq-nvim",
+	-- { "0x100101/lab.nvim",       build = "cd js && npm ci", dependencies = { "nvim-lua/plenary.nvim" } },
+	-- {
+	-- 	"SmiteshP/nvim-navic",
+	-- 	dependencies = "neovim/nvim-lspconfig",
+	-- },
+	-- -- Colorschemes
+	-- "folke/tokyonight.nvim",
+	-- "lunarvim/colorschemes", -- A bunch of colorschemes you can try out
+	-- "lunarvim/darkplus.nvim",
+	-- "lunarvim/onedarker.nvim",
+	-- "sainnhe/gruvbox-material",
+	-- "Mofiqul/dracula.nvim",
+	-- "rebelot/kanagawa.nvim",
+	-- "lunarvim/horizon.nvim",
+	-- -- LSP
+	-- "neovim/nvim-lspconfig", -- enable LSP
+	-- "williamboman/mason.nvim",
+	-- "williamboman/mason-lspconfig.nvim",
+	-- "WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+	-- "b0o/SchemaStore.nvim",
+	-- "RRethy/vim-illuminate",
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 	end,
+	-- },
+	-- -- Java
+	-- "mfussenegger/nvim-jdtls",
+	-- -- Rust
+	-- { "simrat39/rust-tools.nvim" },
+	-- -- Telescope
+	-- "benfowler/telescope-luasnip.nvim",
+	-- "tom-anders/telescope-vim-bookmarks.nvim",
+	-- -- Treesitter
+	-- "preservim/tagbar",
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	dependencies = {
+	-- 		"s1n7ax/nvim-comment-frame",
+	-- 		"abecodes/tabout.nvim",
+	-- 		"danymat/neogen",
+	-- 		"theRealCarneiro/hyprland-vim-syntax",
+	-- 		"hiphish/rainbow-delimiters.nvim",
+	-- 	},
+	-- },
+	-- "JoosepAlviste/nvim-ts-context-commentstring",
+	-- "windwp/nvim-ts-autotag",
+	-- "David-Kunz/markid",
+	-- -- Git
+	-- "tpope/vim-fugitive",
+	-- {
+	-- 	"f-person/git-blame.nvim",
+	-- 	init = function()
+	-- 		vim.g.gitblame_message_template = " <author> - <date> - <summary> - <sha>"
+	-- 		vim.g.gitblame_enabled = false
+	-- 	end,
+	-- },
+	-- "sindrets/diffview.nvim",
+	-- -- DAP
+	--  -- "mfussenegger/nvim-dap",
+	-- "rcarriga/nvim-dap-ui",
+	-- 'theHamsta/nvim-dap-virtual-text',
+	-- "Pocco81/DAPInstall.nvim",
+	-- "mfussenegger/nvim-dap-python",
+	-- {
+	-- 	"samodostal/image.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- },
+	-- { "turbio/bracey.vim", build = "npm install --prefix server" },
+	-- "p00f/cphelper.nvim",
+	-- {
+	-- 	"kristijanhusak/vim-dadbod-ui",
+	-- 	dependencies = {
+	-- 		"tpope/vim-dadbod",
+	-- 		"kristijanhusak/vim-dadbod-completion",
+	-- 		"tpope/vim-dotenv",
+	-- 	},
+	-- },
+	-- "AckslD/swenv.nvim",
+	-- "dccsillag/magma-nvim",
+	-- "MunifTanjim/nui.nvim",
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	opts = {},
+	-- },
+	-- "p00f/clangd_extensions.nvim",
+	-- { "catppuccin/nvim",   name = "catppuccin" },
+	-- "metakirby5/codi.vim",
+	-- "edgedb/edgedb-vim",
+	-- {
+	-- 	"sopa0/telescope-makefile",
+	-- },
+	-- { "m00qek/baleia.nvim" },
+	-- {
+	-- 	'weilbith/nvim-code-action-menu',
+	-- 	cmd = 'CodeActionMenu',
+	-- },
+	-- {
+	-- 	"mrbjarksen/neo-tree-diagnostics.nvim",
+	-- },
+}

@@ -1,0 +1,213 @@
+2024-10-08 21:39:06,684 (18091/MainThread) litecli.main ERROR - sql: 'show tables;', error: OperationalError('near "show": syntax error')
+2024-10-08 21:39:06,685 (18091/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\nsqlite3.OperationalError: near "show": syntax error\n'
+2024-10-08 21:42:00,537 (18297/MainThread) litecli.main ERROR - sql: '.q', error: OperationalError('near ".": syntax error')
+2024-10-08 21:42:00,539 (18297/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\nsqlite3.OperationalError: near ".": syntax error\n'
+2024-11-07 21:41:40,974 (30023/MainThread) litecli.main ERROR - sql: '.e', error: OperationalError('near ".": syntax error')
+2024-11-07 21:41:40,979 (30023/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.12.3_1/libexec/lib/python3.12/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\nsqlite3.OperationalError: near ".": syntax error\n'
+2025-01-19 20:51:33,036 (14834/MainThread) litecli.main ERROR - sql: 'select * from pokemon', error: OperationalError('no such table: pokemon')
+2025-01-19 20:51:33,043 (14834/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-01-19 21:06:26,848 (14937/MainThread) litecli.main ERROR - sql: 'select count(*) from pokemon', error: OperationalError('no such table: pokemon')
+2025-01-19 21:06:26,851 (14937/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-01-19 21:06:37,199 (14927/MainThread) litecli.main ERROR - sql: 'select count(*) from pokemon', error: OperationalError('no such table: pokemon')
+2025-01-19 21:06:37,203 (14927/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-01-19 21:43:48,573 (15304/MainThread) litecli.main ERROR - sql: 'drop table pokemon', error: OperationalError('no such table: pokemon')
+2025-01-19 21:43:48,583 (15304/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/main.py", line 438, in one_iteration\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.13.2/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-03-24 17:01:36,365 (19606/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-03 12:34:58,774 (53654/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-03 12:35:04,746 (53654/MainThread) litecli.main ERROR - sql: 'database', error: OperationalError('near "database": syntax error')
+2025-04-03 12:35:04,751 (53654/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near "database": syntax error\n'
+2025-04-07 11:28:23,220 (25474/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-07 11:28:25,298 (25474/MainThread) litecli.main ERROR - sql: 'select * from pokemon', error: OperationalError('no such table: pokemon')
+2025-04-07 11:28:25,304 (25474/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-04-07 11:28:40,277 (25474/MainThread) litecli.main ERROR - sql: 'select * from pokemon', error: OperationalError('no such table: pokemon')
+2025-04-07 11:28:40,279 (25474/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemon\n'
+2025-04-07 11:28:41,404 (25474/MainThread) litecli.main ERROR - sql: 'select * from pokemons', error: OperationalError('no such table: pokemons')
+2025-04-07 11:28:41,406 (25474/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemons\n'
+2025-04-07 11:29:30,031 (25707/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-07 11:29:33,073 (25707/MainThread) litecli.main ERROR - sql: 'select * from pokemons', error: OperationalError('no such table: pokemons')
+2025-04-07 11:29:33,075 (25707/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: pokemons\n'
+2025-04-07 11:29:43,434 (25707/MainThread) litecli.main ERROR - sql: 'select * from ', error: OperationalError('incomplete input')
+2025-04-07 11:29:43,436 (25707/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: incomplete input\n'
+2025-04-07 11:30:12,068 (25759/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-07 11:31:40,113 (26654/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-07 11:31:47,549 (26654/MainThread) litecli.main ERROR - sql: 'clear', error: OperationalError('near "clear": syntax error')
+2025-04-07 11:31:47,552 (26654/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near "clear": syntax error\n'
+2025-04-23 06:37:20,873 (3106/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-23 06:43:13,598 (3819/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 18:49:43,915 (48057/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 18:50:03,024 (48057/MainThread) litecli.main ERROR - sql: '.q', error: OperationalError('near ".": syntax error')
+2025-04-24 18:50:03,029 (48057/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near ".": syntax error\n'
+2025-04-24 18:56:09,234 (50178/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 19:00:49,943 (50214/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 19:15:25,969 (50904/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 19:56:15,617 (53264/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 19:57:22,972 (53273/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 19:57:52,758 (53281/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-24 20:00:28,577 (53834/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-25 09:33:34,510 (87223/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-04-25 09:33:38,887 (87223/MainThread) litecli.main ERROR - sql: 'select * from ', error: OperationalError('incomplete input')
+2025-04-25 09:33:38,890 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: incomplete input\n'
+2025-04-25 09:33:43,268 (87223/MainThread) litecli.main ERROR - sql: 'select * from u', error: OperationalError('no such table: u')
+2025-04-25 09:33:43,270 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: no such table: u\n'
+2025-04-25 09:33:53,533 (87223/MainThread) litecli.main ERROR - sql: 'PR', error: OperationalError('near "PR": syntax error')
+2025-04-25 09:33:53,535 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near "PR": syntax error\n'
+2025-04-25 09:34:05,966 (87223/MainThread) litecli.main ERROR - sql: 'PRAGMA table ', error: OperationalError('near "table": syntax error')
+2025-04-25 09:34:05,968 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near "table": syntax error\n'
+2025-04-25 09:34:08,711 (87223/MainThread) litecli.main ERROR - sql: 'PRAGMA table comments', error: OperationalError('near "table": syntax error')
+2025-04-25 09:34:08,712 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near "table": syntax error\n'
+2025-04-25 09:34:15,542 (87223/MainThread) litecli.main ERROR - sql: '.s', error: OperationalError('near ".": syntax error')
+2025-04-25 09:34:15,543 (87223/MainThread) litecli.main ERROR - traceback: 'Traceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 123, in run\n    for result in special.execute(cur, sql):\n                  ~~~~~~~~~~~~~~~^^^^^^^^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/packages/special/main.py", line 107, in execute\n    raise CommandNotFound\nlitecli.packages.special.main.CommandNotFound\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 501, in one_iteration\n    mutating = output_res(res, start)\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/main.py", line 392, in output_res\n    for title, cur, headers, status in res:\n                                       ^^^\n  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 130, in run\n    cur.execute(sql)\n    ~~~~~~~~~~~^^^^^\nsqlite3.OperationalError: near ".": syntax error\n'
+2025-04-25 22:41:50,065 (25389/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
+2025-05-02 19:38:10,457 (39812/completion_refresh) litecli.sqlcompleter ERROR - Failed to get function names.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlcompleter.py", line 369, in extend_functions
+    func_data = [self.escaped_names(d) for d in func_data]
+                                                ^^^^^^^^^
+  File "/usr/local/Cellar/litecli/1.15.0/libexec/lib/python3.13/site-packages/litecli/sqlexecute.py", line 188, in functions
+    cur.execute(self.functions_query % self.dbname)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: INFORMATION_SCHEMA.ROUTINES
