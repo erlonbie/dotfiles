@@ -446,6 +446,17 @@ set -g mouse on
 #set -g status-keys vi
 set -g mode-keys vi
 
+# set -g next-window 'C-l'
+# set -g previous-window 'C-h'
+# set -g next-window 'l'
+# set -g previous-window 'h'
+# bind -r C-l next-window                                 # select next window
+# bind-key -r -T prefix C-l next-window
+# bind -r -T prefix C-l next-window
+# bind-key -r -T prefix C-l next-window
+# tmux bind-key -r -T prefix C-l next-window
+bind -r C-l next-window
+
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
 unbind C-a
