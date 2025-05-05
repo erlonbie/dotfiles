@@ -6,6 +6,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/$HOME/.local/bin:$PATH"
 export PATH="/$HOME/.cargo/bin:$PATH"
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 # export NVM_DIR="$HOME/.nvm"
 # export XDG_CONFIG_HOME="$HOME/.config"
