@@ -23,8 +23,3 @@ eval "$(/usr/local/bin/fnm env)"
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"

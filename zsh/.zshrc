@@ -121,3 +121,8 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 # found it here:  https://github.com/romkatv/zsh4humans/issues/110
 [[ ! -v functions[command_not_found_handler] ]] || unfunction command_not_found_handler
+
+. "$HOME/.atuin/bin/env"
+# eval "$(atuin init zsh)"
+# eval "$(atuin init zsh --disable-ctrl-r)"
+eval "$(atuin init zsh --disable-up-arrow)"
