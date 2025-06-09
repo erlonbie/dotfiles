@@ -115,6 +115,8 @@ alias :WQ='exit'
 alias :q='exit'
 alias :Q='exit'
 
+alias k='kubectl'
+
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
@@ -126,3 +128,13 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 # eval "$(atuin init zsh)"
 # eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(atuin init zsh --disable-up-arrow)"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/erlonbie/.dart-cli-completion/zsh-config.zsh ]] && . /Users/erlonbie/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/erlonbie/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
