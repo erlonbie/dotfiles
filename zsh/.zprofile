@@ -7,6 +7,14 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/$HOME/.local/bin:$PATH"
 export PATH="/$HOME/.cargo/bin:$PATH"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
+export PATH="/usr/local/opt/ffmpeg@5/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ffmpeg@5/lib"
+export CPPFLAGS="-I/usr/local/opt/ffmpeg@5/include"
+export FFMPEG_INCLUDE_DIR="/usr/local/opt/ffmpeg@5/include"
+export FFMPEG_LIB_DIR="/usr/local/opt/ffmpeg@5/lib"
+export VCPKG_ROOT=~/repos/vcpkg
+export PATH=$HOME/fvm/default/bin:$PATH
+export EDITOR="nvim"
 
 # export NVM_DIR="$HOME/.nvm"
 # export XDG_CONFIG_HOME="$HOME/.config"
