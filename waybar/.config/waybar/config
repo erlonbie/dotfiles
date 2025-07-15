@@ -5,7 +5,7 @@
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": ["custom/launcher", "hyprland/workspaces", "wlr/taskbar","hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["tray",  "pulseaudio", "network", "backlight", "battery", "battery#bat2", "cpu", "memory", "clock", "custom/omo", "custom/notification"],
+    "modules-right": ["tray",  "pulseaudio", "network", "backlight", "battery", "battery#bat2", "custom/gpu-usage", "cpu", "memory", "clock", "custom/omo", "custom/notification"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
@@ -65,6 +65,13 @@
         "interval": 2,
         "format": " {usage:2L}% {avg_frequency:0.2f}GHz",
         "tooltip": true,
+    },
+    "custom/gpu-usage": {
+      "format": "󰻠 {0} {1}",
+      "exec": "gpu-usage-waybar",
+      "return-type": "json",
+      "format-icons": "󰾲",
+      "on-click": "ghostty -e nvtop",
     },
     "memory": {
     //    "format": "{}% "
