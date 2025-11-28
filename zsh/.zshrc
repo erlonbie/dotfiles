@@ -95,16 +95,18 @@ compdef _directories md
 # Add flags to existing aliases.
 alias tmb="tmux bind-key -r -T prefix C-l next-window"
 alias ls="eza --group-directories-first --icons"
-alias nvim="$HOME/.local/share/bob/v0.11.1/bin/nvim"
+alias nvim="$HOME/.local/share/bob/v0.11.4/bin/nvim"
 alias nv="/usr/local/bin/nvim"
 alias lvim="NVIM_APPNAME=lazyvim nvim"
 alias oraclevm="kitten ssh -i ~/.ssh/ssh-key-2025-04-09.key erlonbie@137.131.155.107"
 alias termuxssh="kitten ssh -i ~/.ssh/mactermux 192.168.100.16 -p 8022"
+alias hx="helix"
 alias python=python3
 alias gg="gpt"
 alias '?'="gpt"
 gpt() {
-     chatgpt "$*"
+     # chatgpt "$*"
+     tgpt "$*"
 }
 alias tl='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias tree='tree -a -I .git'
@@ -124,17 +126,22 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 # found it here:  https://github.com/romkatv/zsh4humans/issues/110
 [[ ! -v functions[command_not_found_handler] ]] || unfunction command_not_found_handler
 
-. "$HOME/.atuin/bin/env"
+#. "$HOME/.atuin/bin/env"
 # eval "$(atuin init zsh)"
 # eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# fnm
+FNM_PATH="/home/erlonbie/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/erlonbie/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/erlonbie/.dart-cli-completion/zsh-config.zsh ]] && . /Users/erlonbie/.dart-cli-completion/zsh-config.zsh || true
+[[ -f /home/erlonbie/.dart-cli-completion/zsh-config.zsh ]] && . /home/erlonbie/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/erlonbie/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

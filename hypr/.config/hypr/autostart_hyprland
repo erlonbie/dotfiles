@@ -6,6 +6,6 @@
 # wireplumber &
 nm-applet --indicator &
 copyq &
-fcitx5 &
+# fcitx5 &
 # setxkbmap -layout br,us
 # setxkbmap -option 'grp:alt_shift_toggle'

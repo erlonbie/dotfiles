@@ -27,8 +27,10 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/$HOME/Library/Application Support/fnm:$PATH"
   eval "`fnm env`"
 fi
-# eval "$(fnm env --use-on-cd --shell zsh)"
+
+eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(/usr/local/bin/fnm env)"
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="$PATH:/home/erlonbie/repos/ngc-cli"
