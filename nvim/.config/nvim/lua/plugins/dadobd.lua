@@ -6,6 +6,7 @@ local M = {
 		"tpope/vim-dadbod",
 		"kristijanhusak/vim-dadbod-completion",
 		"tpope/vim-dotenv",
+    "elubow/cql-vim"
 	},
 }
 

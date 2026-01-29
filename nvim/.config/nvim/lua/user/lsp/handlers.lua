@@ -97,6 +97,9 @@ local function attach_navbuddy(client, bufnr)
   if not status_ok then
     return
   end
+  if not (client.supports_method and client.supports_method "textDocument/documentSymbol") then
+    return
+  end
   navbuddy.attach(client, bufnr)
 end
 
@@ -145,101 +148,41 @@ end
 -- 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 -- end
 
+M._attached = M._attached or {}
+
 M.on_attach = function(client, bufnr)
+	M._attached[bufnr] = M._attached[bufnr] or {}
+	if M._attached[bufnr][client.id] then
+		return
+	end
+	M._attached[bufnr][client.id] = true
+
 	-- lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 	attach_navic(client, bufnr)
-	-- attach_navbuddy(client, bufnr)
-  -- if client.supports_method "textDocument/inlayHint" then
-  --   vim.lsp.inlay_hint.enable(true)
-  -- end
-
-  -- if client.supports_method "textDocument/inlayHint" then
-  --   vim.lsp.inlay_hint.enable(true)
-  -- end
-
-  -- vim.api.nvim_create_autocmd('InsertEnter', {
-  --   -- group = inlay_hints_group,
-  --   desc = 'Enable inlay hints',
-  --   buffer = bufnr,
-  --   callback = function()
-  --     vim.lsp.inlay_hint.enable(bufnr, false)
-  --   end,
-  -- })
-  -- vim.api.nvim_create_autocmd('InsertLeave', {
-  --   -- group = inlay_hints_group,
-  --   desc = 'Disable inlay hints',
-  --   buffer = bufnr,
-  --   callback = function()
-  --     vim.lsp.inlay_hint.enable(bufnr, true)
-  --   end,
-  -- })
-	-- for tsserver
-	-- if client.name == "tsserver" the'
-	--   require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
-	-- end
-
-	-- for tsserver
+	attach_navbuddy(client, bufnr)
+	if client.supports_method "textDocument/inlayHint" then
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+	end
 	if client.name == "clangd" then
 		-- client.resolved_capabilities.document_formatting = false
 		client.server_capabilities.document_formatting = false
 		client.server_capabilities.document_highlight = false
 	end
 
-	-- if client.name == "rust-analyzer" then
-	--       print("entrei aqui no rust")
-	--   if client.server_capabilities.inlayHintProvider then
-	--     -- require("lsp-inlayhints").setup_autocmd(bufnr)
-	--       vim.lsp.inlay_hints(bufnr, true)
-	--   end
-	-- end
-	--
-	-- if client.name == "jdtls" then
-	--   if client.server_capabilities.inlayHintProvider then
-	--     -- require("lsp-inlayhints").setup_autocmd(bufnr)
-	--       vim.lsp.inlay_hints(bufnr, true)
-	--   end
-	-- end
-
-	-- if client.name == "jdtls" then
-	-- 	M.capabilities.textDocument.completion.completionItem.snippetSupport = false
-	-- 	vim.lsp.codelens.refresh()
-	-- 	if JAVA_DAP_ACTIVE then
-	-- 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
-	-- 		require("jdtls.dap").setup_dap_main_class_configs()
-	-- 	end
-	-- end
 end
 
--- function M.enable_format_on_save()
---   vim.cmd [[
---     augroup format_on_save
---       autocmd!
---       autocmd BufWritePre * lua vim.lsp.buf.format({ async = true })
---     augroup end
---   ]]
---   vim.notify "Enabled format on save"
--- end
-
--- function M.disable_format_on_save()
---   M.remove_augroup "format_on_save"
---   vim.notify "Disabled format on save"
--- end
---
--- function M.toggle_format_on_save()
---   if vim.fn.exists "#format_on_save#BufWritePre" == 0 then
---     M.enable_format_on_save()
---   else
---     M.disable_format_on_save()
---   end
--- end
---
--- function M.remove_augroup(name)
---   if vim.fn.exists("#" .. name) == 1 then
---     vim.cmd("au! " .. name)
---   end
--- end
---
--- vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
+local auto_attach_group = vim.api.nvim_create_augroup("UserAutoLspHandlers", {})
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = auto_attach_group,
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if not client then
+			return
+		end
+		require("user.lsp.handlers").on_attach(client, args.buf)
+	end,
+})
 
 return M
+

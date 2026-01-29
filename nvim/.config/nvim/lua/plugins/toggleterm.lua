@@ -376,6 +376,23 @@ function M.config()
     end,
   }
 
+  local opencode = Terminal:new {
+    cmd = "opencode",  -- Replace with your actual command
+    -- dir = "git_dir",  -- Or specify a directory
+    direction = "float",
+    float_opts = {
+      border = "rounded",
+    },
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+    end,
+    on_close = function(term)
+      vim.cmd("startinsert!")
+    end,
+  }
+
+
   local bun_outdated = Terminal:new {
     cmd = "bunx npm-check-updates@latest -ui --format group --packageManager bun",
     dir = "git_dir",
@@ -440,6 +457,10 @@ function M.config()
 
   function _CARGO_TEST()
     cargo_test:toggle()
+  end
+
+  function _OPENCODE_TOGGLE()
+    opencode:toggle()
   end
 
   function _LAZYGIT_TOGGLE()

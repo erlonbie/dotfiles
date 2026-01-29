@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		{ "mrbjarksen/neo-tree-diagnostics.nvim" },
-    "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	enabled = true,
 	lazy = true,

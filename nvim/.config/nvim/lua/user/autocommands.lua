@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { "*.cpp", "*.py"},
+	pattern = { "*.cpp", "*.py", ".go"},
 	callback = function()
 		vim.cmd([[
       set tabstop=4
@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "php"},
+	pattern = { "php", "go", "python"},
 	callback = function()
 		vim.cmd([[
       set tabstop=4
@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "term://*" },
 	callback = function()
 		vim.cmd("startinsert!")
-		vim.cmd("set cmdheight=1")
+		-- vim.cmd("set cmdheight=1")
 	end,
 })
 
@@ -205,33 +205,33 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  -- group = inlay_hints_group,
-  desc = 'Disable inlay hints',
-  -- buffer = bufnr,
-  callback = function()
-    -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
-    vim.lsp.inlay_hint.enable(true)
-  end,
-})
-vim.api.nvim_create_autocmd('InsertEnter', {
-  -- group = inlay_hints_group,
-  desc = 'Enable inlay hints',
-  -- buffer = bufnr,
-  callback = function()
-    -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
-    vim.lsp.inlay_hint.enable(false)
-  end,
-})
-vim.api.nvim_create_autocmd('InsertLeave', {
-  -- group = inlay_hints_group,
-  desc = 'Disable inlay hints',
-  -- buffer = bufnr,
-  callback = function()
-    -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
-    vim.lsp.inlay_hint.enable(true)
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufWinEnter', {
+--   -- group = inlay_hints_group,
+--   desc = 'Disable inlay hints',
+--   -- buffer = bufnr,
+--   callback = function()
+--     -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+--     vim.lsp.inlay_hint.enable(true)
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd('InsertEnter', {
+--   -- group = inlay_hints_group,
+--   desc = 'Enable inlay hints',
+--   -- buffer = bufnr,
+--   callback = function()
+--     -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+--     vim.lsp.inlay_hint.enable(false)
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd('InsertLeave', {
+--   -- group = inlay_hints_group,
+--   desc = 'Disable inlay hints',
+--   -- buffer = bufnr,
+--   callback = function()
+--     -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+--     vim.lsp.inlay_hint.enable(true)
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
   callback = function()

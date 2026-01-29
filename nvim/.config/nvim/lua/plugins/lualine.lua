@@ -16,7 +16,7 @@ vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLFG", { fg = "#abb2bf", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#181826" })
 -- vim.api.nvim_set_hl(0, "SLLSP", { fg = "#abb2bf", bg = sl_hl.background })
-vim.api.nvim_set_hl(0, "SLLSP", { fg = "#abb2bf", bg = "#181826" })
+vim.api.nvim_set_hl(0, "SLLSP", { fg = "#D3CEAB", bg = "#282c34" })
 -- vim.api.nvim_set_hl(0, "SLLSP", { fg = "#5e81ac", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLCopilot", { fg = "#6CC644", bg = "#282c34" })
 
@@ -126,7 +126,7 @@ local lanuage_server = {
   end,
   padding = 0,
   cond = hide_in_width,
-  separator = "%#SLSeparator#" .. " │" .. "%*",
+  separator = "%#SLSeparator#" .. "%*",
 }
 
 return {
@@ -145,7 +145,7 @@ return {
     vim.api.nvim_set_hl(0, "SLFG", { fg = "#abb2bf", bg = "#282c34" })
     vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#181826" })
     -- vim.api.nvim_set_hl(0, "SLLSP", { fg = "#abb2bf", bg = sl_hl.background })
-    vim.api.nvim_set_hl(0, "SLLSP", { fg = "#abb2bf", bg = "#181826" })
+    vim.api.nvim_set_hl(0, "SLLSP", { fg = "#D3CEAB", bg = "#282c34" })
     -- vim.api.nvim_set_hl(0, "SLLSP", { fg = "#5e81ac", bg = "#282c34" })
     vim.api.nvim_set_hl(0, "SLCopilot", { fg = "#6CC644", bg = "#282c34" })
 
@@ -166,7 +166,7 @@ return {
       colored = true,
       symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
       cond = hide_in_width_60,
-      separator = "%#SLSeparator#" .. " │ " .. "%*",
+      separator = "%#SLSeparator#" ..  "%*",
     }
 
     lualine.setup {
@@ -184,7 +184,7 @@ return {
         lualine_b = { branch, diff, "diagnostics" },
         lualine_c = { "filename" },
         -- lualine_x = { {"swenv", icon = ''}, lsp, "encoding", "filetype", "fileformat" },
-        lualine_x = { { "swenv", icon = "" }, lanuage_server, "encoding", "filetype", "fileformat" },
+        lualine_x = { { "swenv", icon = "" }, lanuage_server, "filetype" },
         -- lualine_x = { diff, lanuage_server, spaces, filetype },
         -- lualine_z = { progress },
         -- lualine_y = { location },

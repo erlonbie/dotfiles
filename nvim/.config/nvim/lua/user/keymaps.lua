@@ -157,6 +157,7 @@ keymap("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
 keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
 keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
 keymap("n", "<leader>gl", "<cmd> lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>oc", "<cmd>lua _OPENCODE_TOGGLE()<CR>", opts)
 
 keymap("n", "<leader>rf", ":Jaq float<CR>", opts)
 keymap("n", "<leader>rr", ":Lab code run<CR>", opts)
@@ -463,3 +464,36 @@ vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
 -- end
 --
 -- vim.keymap.set("v", "<leader>fa", range_formatting, { desc = "Range Formatting" })
+
+----------------------------------------------------------------------
+--                              sleek                               --
+----------------------------------------------------------------------
+
+vim.api.nvim_create_user_command(
+  'Sleek',
+  function()
+    -- Save the current visual selection to a temporary register
+    local original_register = vim.fn.getreg('"')
+    local original_register_type = vim.fn.getregtype('"')
+    -- Yank the visual selection
+    vim.cmd('normal! gvy')
+    -- Get the yanked text
+    local selected_text = vim.fn.getreg('"')
+    -- Format using sleek
+    local formatted = vim.fn.system('sleek', selected_text)
+    -- Check for errors
+    if vim.v.shell_error ~= 0 then
+        vim.notify("Error running sleek: " .. formatted, vim.log.levels.ERROR)
+        return
+    end
+    -- Put the formatted text back
+    vim.fn.setreg('"', formatted)
+    vim.cmd('normal! gvp')
+    -- Restore the original register
+    vim.fn.setreg('"', original_register, original_register_type)
+  end,
+  { range = true }
+)
+
+-- Create a visual mode mapping (optional)
+vim.keymap.set('v', '<leader>sf', ':Sleek<CR>', { noremap = true, silent = true, desc = "Format SQL with sleek" })

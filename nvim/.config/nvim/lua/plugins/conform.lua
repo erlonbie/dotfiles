@@ -32,6 +32,7 @@ return {
         php = { "php-cs-fixer" },
         toml = { "taplo" },
         zsh = { "beautysh" },
+        go = { "gofmt" },
       },
       formatters = {
         java = {
@@ -101,7 +102,7 @@ return {
     vim.keymap.set({ "n", "v" }, "<leader>fa", function()
       conform.format {
         lsp_fallback = true,
-        async = false,
+        async = true,
         timeout_ms = 500,
       }
     end, { desc = "Format file in normal or visual mode (range)" })

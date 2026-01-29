@@ -77,7 +77,7 @@ function M.toggle_tabline()
   vim.notify("showtabline" .. " set to " .. tostring(value))
 end
 
-local diagnostics_active = true
+local diagnostics_active = false
 function M.toggle_diagnostics()
   diagnostics_active = not diagnostics_active
   if diagnostics_active then

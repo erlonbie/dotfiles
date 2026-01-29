@@ -5,9 +5,11 @@ local M = {
 		"s1n7ax/nvim-comment-frame",
 		"abecodes/tabout.nvim",
 		"danymat/neogen",
+		"iamcco/markdown-preview.nvim",
+   -- "OXY2DEV/markview.nvim",
 		-- "preservim/tagbar",
 		-- "theRealCarneiro/hyprland-vim-syntax",
-		"hiphish/rainbow-delimiters.nvim",
+		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 		"JoosepAlviste/nvim-ts-context-commentstring",
     {
       'fei6409/log-highlight.nvim',

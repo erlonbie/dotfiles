@@ -6,8 +6,8 @@ return {
       require("lint").linters_by_ft = {
         python = { "ruff" },
         htmldjango = { "djlint" },
-        javascript = { "eslint" },
-        typescript = { "eslint" },
+        -- javascript = { "eslint_d" },
+        -- typescript = { "eslint_d" },
         -- c = { "clangtidy" },
         cpp = { "cpplint" },
         cmake = { "cmakelint" },

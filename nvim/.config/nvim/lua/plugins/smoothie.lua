@@ -1,7 +1,7 @@
 
 local M = {
   "opalmay/vim-smoothie",
-  enabled = true,
+  enabled = function() return not vim.g.neovide end,
   event = "VeryLazy",
 }
 

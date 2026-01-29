@@ -186,7 +186,6 @@ function M.config()
     { "<localleader>lc", "<cmd>lua require('user.lsp').server_capabilities()<cr>", desc = "Get Capabilities", nowait = true, remap = false },
     { "<localleader>ld", "<cmd>TroubleToggle<cr>", desc = "Diagnostics", nowait = true, remap = false },
     { "<localleader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format", nowait = true, remap = false },
-    { "<localleader>lh", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", desc = "Toggle Hints", nowait = true, remap = false },
     { "<localleader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
     { "<localleader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next Diagnostic", nowait = true, remap = false },
     { "<localleader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },

@@ -13,7 +13,7 @@
 
 local M = {
 	"RRethy/vim-illuminate",
-	event = "VeryLazy",
+	-- event = "VeryLazy",
 }
 
 function M.config()
@@ -24,27 +24,27 @@ function M.config()
   vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
   vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
   vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
-	--  local key_n = ""
-	--  local key_p = ""
-	--  if vim.fn.has("mac") == 1 then
-	--    key_n = "<M-n>"
-	--    key_p = "<M-p>"
-	--  else
-	--    key_n = "<a-n>"
-	--    key_p = "<a-p>"
-	--  end
-	-- vim.api.nvim_set_keymap(
-	-- 	"n",
-	-- 	key_n,
-	-- 	'<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
-	-- 	{ noremap = true }
-	-- )
-	-- vim.api.nvim_set_keymap(
-	-- 	"n",
-	-- 	key_p,
-	-- 	'<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
-	-- 	{ noremap = true }
-	-- )
+	 local key_n = ""
+	 local key_p = ""
+	 if vim.fn.has("mac") == 1 then
+	   key_n = "<M-n>"
+	   key_p = "<M-p>"
+	 else
+	   key_n = "<a-n>"
+	   key_p = "<a-p>"
+	 end
+	vim.api.nvim_set_keymap(
+		"n",
+		key_n,
+		'<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
+		{ noremap = true }
+	)
+	vim.api.nvim_set_keymap(
+		"n",
+		key_p,
+		'<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
+		{ noremap = true }
+	)
 	require("illuminate").configure({
 		filetypes_denylist = {
 			"mason",
