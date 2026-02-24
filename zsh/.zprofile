@@ -6,8 +6,10 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/$HOME/.local/bin:$PATH"
 export PATH="/$HOME/.cargo/bin:$PATH"
+export PATH="/$HOME/go/bin:$PATH"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 export PATH="/usr/local/opt/ffmpeg@5/bin:$PATH"
+export PATH="/home/erlonbie/.local/share/nvim/mason/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ffmpeg@5/lib"
 export CPPFLAGS="-I/usr/local/opt/ffmpeg@5/include"
 export FFMPEG_INCLUDE_DIR="/usr/local/opt/ffmpeg@5/include"
@@ -22,15 +24,15 @@ export EDITOR="nvim"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # fnm
-FNM_PATH="/$HOME/Library/Application Support/fnm"
+FNM_PATH="/home/erlonbie/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/$HOME/Library/Application Support/fnm:$PATH"
+  export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-eval "$(/usr/local/bin/fnm env)"
+# eval "$(/usr/local/bin/fnm env)"
 
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export PATH="$PATH:/home/erlonbie/repos/ngc-cli"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export PATH="$PATH:/home/erlonbie/repos/ngc-cli"

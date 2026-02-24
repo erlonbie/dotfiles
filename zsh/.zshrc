@@ -95,13 +95,15 @@ compdef _directories md
 # Add flags to existing aliases.
 alias tmb="tmux bind-key -r -T prefix C-l next-window"
 alias ls="eza --group-directories-first --icons"
-alias nvim="$HOME/.local/share/bob/v0.11.4/bin/nvim"
+# alias nvim="$HOME/.local/share/bob/v0.11.4/bin/nvim"
+alias nvim="/home/erlonbie/Downloads/nvim-linux-x86_64/bin/nvim" 
 alias nv="/usr/local/bin/nvim"
 alias lvim="NVIM_APPNAME=lazyvim nvim"
 alias oraclevm="kitten ssh -i ~/.ssh/ssh-key-2025-04-09.key erlonbie@137.131.155.107"
 alias termuxssh="kitten ssh -i ~/.ssh/mactermux 192.168.100.16 -p 8022"
-alias hx="helix"
+# alias hx="helix"
 alias python=python3
+alias neovide='neovide --neovim-bin /usr/local/bin/nvim'
 alias gg="gpt"
 alias '?'="gpt"
 gpt() {
@@ -123,13 +125,15 @@ alias k='kubectl'
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
+export QT_QPA_PLATFORM="xcb"
+
 # found it here:  https://github.com/romkatv/zsh4humans/issues/110
 [[ ! -v functions[command_not_found_handler] ]] || unfunction command_not_found_handler
 
 #. "$HOME/.atuin/bin/env"
 # eval "$(atuin init zsh)"
 # eval "$(atuin init zsh --disable-ctrl-r)"
-eval "$(atuin init zsh --disable-up-arrow)"
+# eval "$(atuin init zsh --disable-up-arrow)"
 
 # fnm
 FNM_PATH="/home/erlonbie/.local/share/fnm"
@@ -145,3 +149,9 @@ fi
 [[ -f /home/erlonbie/.dart-cli-completion/zsh-config.zsh ]] && . /home/erlonbie/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+. "$HOME/.local/bin/env"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

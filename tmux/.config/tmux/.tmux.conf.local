@@ -331,7 +331,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" #S ❐ "
-tmux_conf_theme_status_right="| ↑ |#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} |  | #{username}#{root} |  | #{hostname} |  | %d-%m-%Y %H:%M | #{weather}"
+tmux_conf_theme_status_right="| ↑ |#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} |  | #{username}#{root} |  | #{hostname} |  | %d-%m-%Y %H:%M"
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_17,$tmux_conf_theme_colour_16"
