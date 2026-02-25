@@ -96,7 +96,7 @@ compdef _directories md
 alias tmb="tmux bind-key -r -T prefix C-l next-window"
 alias ls="eza --group-directories-first --icons"
 # alias nvim="$HOME/.local/share/bob/v0.11.4/bin/nvim"
-alias nvim="/home/erlonbie/Downloads/nvim-linux-x86_64/bin/nvim" 
+alias nvim="/home/erlonbie/.local/share/bob/nightly/bin/nvim" 
 alias nv="/usr/local/bin/nvim"
 alias lvim="NVIM_APPNAME=lazyvim nvim"
 alias oraclevm="kitten ssh -i ~/.ssh/ssh-key-2025-04-09.key erlonbie@137.131.155.107"
@@ -135,13 +135,6 @@ export QT_QPA_PLATFORM="xcb"
 # eval "$(atuin init zsh --disable-ctrl-r)"
 # eval "$(atuin init zsh --disable-up-arrow)"
 
-# fnm
-FNM_PATH="/home/erlonbie/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/erlonbie/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 ## [Completion]
@@ -150,8 +143,6 @@ fi
 ## [/Completion]
 
 
-. "$HOME/.local/bin/env"
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
