@@ -95,9 +95,16 @@ compdef _directories md
 # Add flags to existing aliases.
 alias tmb="tmux bind-key -r -T prefix C-l next-window"
 alias ls="eza --group-directories-first --icons"
-alias nvim="$HOME/.local/share/bob/v0.11.1/bin/nvim"
-alias nv="/usr/local/bin/nvim"
-alias lvim="NVIM_APPNAME=lazyvim nvim"
+alias nvim="$HOME/.local/share/bob/v0.12.1/bin/nvim"
+# alias nvim="$HOME/.local/share/bob/v0.11.6/bin/nvim"
+# alias nvim="$HOME/.local/share/bob/nightly/bin/nvim"
+# alias nv="/usr/local/bin/nvim"
+alias lvim="NVIM_APPNAME=lvim nvim"
+alias cvim="NVIM_APPNAME=cvim nvim"
+alias mvim="NVIM_APPNAME=mvim nvim"
+# alias nv="NVIM_APPNAME=newnvim nvim"
+alias nv="NVIM_APPNAME=newnvim $HOME/.local/share/bob/v0.12.1/bin/nvim"
+alias fvim="NVIM_APPNAME=freshnvim $HOME/.local/share/bob/v0.12.1/bin/nvim"
 alias oraclevm="kitten ssh -i ~/.ssh/ssh-key-2025-04-09.key erlonbie@137.131.155.107"
 alias termuxssh="kitten ssh -i ~/.ssh/mactermux 192.168.100.16 -p 8022"
 alias python=python3
@@ -138,3 +145,14 @@ eval "$(atuin init zsh --disable-up-arrow)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/erlonbie/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export VAULT_ADDR='http://192.168.100.154:8200'    
+export SSH_PASS='abc123'
+export PATH=$PATH:$HOME/go/bin
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Added by Antigravity
+export PATH="/Users/erlonbie/.antigravity/antigravity/bin:$PATH"
