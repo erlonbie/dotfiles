@@ -471,7 +471,8 @@ unbind -T copy-mode-vi MouseDragEnd1Pane
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
 # set -g @resurrect-strategy-nvim 'session'
-set -g @resurrect-processes '~nvim'
+set -g @resurrect-processes '~nvim ~agy ~claude ~codex'
+set -g @resurrect-capture-pane-contents 'on'
 
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
@@ -556,7 +557,8 @@ tmux_conf_uninstall_plugins_on_reload=false
 # visit https://github.com/tmux-plugins for available plugins
 # set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continumm'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
 set -g @plugin 'tmux-plugins/tmux-yank'
